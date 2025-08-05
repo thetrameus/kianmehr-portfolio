@@ -66,17 +66,6 @@ export default function GlobalServicesLight() {
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          from {
-            transform: translate(-50px, -50px) scale(1);
-          }
-          to {
-            transform: translate(50px, 50px) scale(1.2);
-          }
-        }
-      `}</style>
     </main>
   );
 }

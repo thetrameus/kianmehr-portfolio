@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 export default function Hero() {
   const [open, setOpen] = useState(false);
-
-  const textRef = useRef(null);
-  const bgRef = useRef(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const title = "Business Admin".split("");
 
   useEffect(() => {
     // stagger-in text
-    const chars = [...textRef.current.querySelectorAll("span")];
+    const el = textRef.current;
+    if (!el) return;
+
+    const chars = Array.from(el.querySelectorAll<HTMLSpanElement>("span"));
     chars.forEach((c, i) => {
       c.style.transform = "translateY(40px)";
       c.style.opacity = "0";
@@ -21,9 +23,11 @@ export default function Hero() {
 
     // subtle parallax on scroll
     const onScroll = () => {
-      const y = window.scrollY;
-      bgRef.current.style.transform = `translateY(${y * 0.25}px)`;
+      const bg = bgRef.current;
+      if (!bg) return;
+      bg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
     };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

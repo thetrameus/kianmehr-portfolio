@@ -82,12 +82,6 @@ export default function FeedbackHeaderStrip() {
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        div::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </header>
   );
 }

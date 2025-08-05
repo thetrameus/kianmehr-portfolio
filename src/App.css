@@ -9,17 +9,6 @@
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    background: black;
-  }
-  99% {
-    opacity: 100;
-  }
-}
-
 @keyframes pulse {
   from {
     opacity: 0.3;
@@ -106,4 +95,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+@keyframes float {
+  from {
+    transform: translate(-50px, -50px) scale(1);
+  }
+  to {
+    transform: translate(50px, 50px) scale(1.2);
+  }
+}
+div::-webkit-scrollbar {
+  display: none;
 }
