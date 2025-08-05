@@ -63,7 +63,10 @@ export default function CountdownRevealPage() {
             className="absolute inset-0 rounded-full bg-gradient-to-r from-white via-neutral-200 to-white
                        animate-gradientX"
           />
-          <Link to="/presentation-room" className="relative z-10">
+          <Link
+            to="/kianmehr-portfolio/presentation-room"
+            className="relative z-10"
+          >
             Engage
           </Link>
         </button>

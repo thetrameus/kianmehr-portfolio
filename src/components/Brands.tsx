@@ -1,5 +1,5 @@
 // BrandShowcase3D.jsx  – pure CSS 3D showcase (no extra libs)
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const brands = [
   { name: "Apple", icon: "", color: "#A2AAAD" },
@@ -13,19 +13,23 @@ const brands = [
 ];
 
 export default function BrandShowcase3D() {
-  const wrapRef = useRef(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   // mouse-move 3D tilt
-  const handleMove = (e) => {
-    const { left, top, width, height } =
-      wrapRef.current.getBoundingClientRect();
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = wrapRef.current;
+    if (!el) return;
+
+    const { left, top, width, height } = el.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 20;
     const y = (e.clientY - top - height / 2) / 20;
-    wrapRef.current.style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
+    el.style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
   };
 
   const handleLeave = () => {
-    wrapRef.current.style.transform = "rotateX(0) rotateY(0)";
+    const el = wrapRef.current;
+    if (!el) return;
+    el.style.transform = "rotateX(0) rotateY(0)";
   };
 
   return (

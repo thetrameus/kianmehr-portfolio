@@ -12,26 +12,35 @@ const jobs = [
 export default function ContactAbout() {
   const [view, setView] = useState("about"); // about | contact
   const [sent, setSent] = useState(false);
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null); // or whatever type fits
 
   // slide-in form
   useEffect(() => {
-    if (view === "contact" && formRef.current) {
-      formRef.current.style.clipPath = "polygon(0 0, 0 0, 0 100%, 0 100%)";
-      setTimeout(() => {
-        formRef.current.style.transition =
-          "clip-path .8s cubic-bezier(.4,0,.2,1)";
-        formRef.current.style.clipPath =
-          "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
-      }, 100);
-    }
+    if (view !== "contact") return;
+
+    const el = formRef.current;
+    if (!el) return; // safety first
+
+    el.style.clipPath = "polygon(0 0, 0 0, 0 100%, 0 100%)";
+
+    const t = setTimeout(() => {
+      el.style.transition = "clip-path .8s cubic-bezier(.4,0,.2,1)";
+      el.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+    }, 100);
+
+    // clean up if the component unmounts or view changes
+    return () => clearTimeout(t);
   }, [view]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    e.target.reset();
+
+    const timer = setTimeout(() => setSent(false), 3000);
+    e.currentTarget.reset();
+
+    // optional: return timer so the caller can clear it if needed
+    return () => clearTimeout(timer);
   };
 
   return (

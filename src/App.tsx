@@ -6,8 +6,11 @@ import PresentationRoom from "./components/Presentation/RoomOnFire";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/presentation-room" element={<PresentationRoom />} />
+      <Route path="/kianmehr-portfolio/" element={<Home />} />
+      <Route
+        path="/kianmehr-portfolio/presentation-room"
+        element={<PresentationRoom />}
+      />
     </Routes>
   );
 }
