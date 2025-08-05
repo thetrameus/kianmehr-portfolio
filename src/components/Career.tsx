@@ -26,15 +26,16 @@ const roles = [
 
 export default function CareerClipPath() {
   const [active, setActive] = useState(0);
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null); // or whatever type you need
 
   useEffect(() => {
-    // entrance animation
-    cardRef.current.style.clipPath = "polygon(0 0, 0 0, 0 100%, 0 100%)";
+    const el = cardRef.current;
+    if (!el) return; // <- guard
+
+    el.style.clipPath = "polygon(0 0, 0 0, 0 100%, 0 100%)";
     setTimeout(() => {
-      cardRef.current.style.transition = "clip-path 1s cubic-bezier(.4,0,.2,1)";
-      cardRef.current.style.clipPath =
-        "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+      el.style.transition = "clip-path 1s cubic-bezier(.4,0,.2,1)";
+      el.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
     }, 100);
   }, []);
 

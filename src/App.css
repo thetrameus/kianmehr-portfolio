@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateZ(0px);
+  }
+  100% {
+    transform: translateY(-8px) translateZ(8px);
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -9,16 +18,6 @@
   99% {
     opacity: 100;
   }
-}
-
-@keyframes scaled {
-  0% {
-    opacity: 0;
-  }
-}
-
-.intro {
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes spin {

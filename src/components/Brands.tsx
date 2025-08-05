@@ -97,17 +97,6 @@ export default function BrandShowcase3D() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0px) translateZ(0px);
-          }
-          100% {
-            transform: translateY(-8px) translateZ(8px);
-          }
-        }
-      `}</style>
     </section>
   );
 }
