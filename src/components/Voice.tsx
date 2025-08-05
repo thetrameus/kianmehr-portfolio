@@ -28,10 +28,13 @@ export default function RealisticParagraphReveal() {
     }, 180); // ≈ 5–6 words / sec
   };
 
-  useEffect(
-    () => () => intervalRef.current && clearInterval(intervalRef.current),
-    []
-  );
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section className="min-h-screen bg-black flex items-center justify-center px-6">
@@ -77,19 +80,6 @@ export default function RealisticParagraphReveal() {
           </button>
         )}
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(4px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }

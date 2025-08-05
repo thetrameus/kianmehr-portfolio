@@ -94,18 +94,6 @@ export default function UltraCreativePricing() {
           </span>
         ))}
       </div>
-
-      <style jsx>{`
-        @keyframes pulse {
-          0%,
-          100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-        }
-      `}</style>
     </section>
   );
 }
