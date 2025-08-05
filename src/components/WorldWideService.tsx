@@ -91,14 +91,6 @@ export default function GlobalGuidanceSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </section>
   );
 }
