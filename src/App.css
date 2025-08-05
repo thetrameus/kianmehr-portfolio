@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    background: black;
+  }
+  99% {
+    opacity: 100;
+  }
+}
+
+@keyframes scaled {
+  0% {
+    opacity: 0;
+  }
+}
+
+.intro {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes wave {
+  0% {
+    clip-path: polygon(
+      0 20%,
+      10% 0,
+      20% 20%,
+      30% 0,
+      40% 20%,
+      50% 0,
+      60% 20%,
+      70% 0,
+      80% 20%,
+      90% 0,
+      100% 20%,
+      100% 100%,
+      0 100%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      0 0,
+      10% 20%,
+      20% 0,
+      30% 20%,
+      40% 0,
+      50% 20%,
+      60% 0,
+      70% 20%,
+      80% 0,
+      90% 20%,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
