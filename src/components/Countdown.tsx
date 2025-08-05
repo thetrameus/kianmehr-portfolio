@@ -72,7 +72,7 @@ export default function CountdownRevealPage() {
         </button>
       )}
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes pulse {
           from {
             opacity: 0.3;
@@ -108,7 +108,7 @@ export default function CountdownRevealPage() {
           background-size: 200% 200%;
           animation: gradientX 2s ease-in-out infinite;
         }
-      `}</style>
+      `}</style> */}
     </section>
   );
 }

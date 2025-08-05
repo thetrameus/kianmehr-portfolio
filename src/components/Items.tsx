@@ -41,19 +41,19 @@ const items = [
 ];
 
 export default function ScrollGallery() {
-  const refs = useRef([]);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          const el = e.target;
+          const el = e.target as HTMLDivElement;
           if (e.isIntersecting) {
             el.style.transform = "translateY(0) scale(1)";
-            el.style.opacity = 1;
+            el.style.opacity = "1";
           } else {
             el.style.transform = "translateY(80px) scale(0.9)";
-            el.style.opacity = 0;
+            el.style.opacity = "0";
           }
         });
       },
@@ -75,9 +75,11 @@ export default function ScrollGallery() {
           {items.map((item, i) => (
             <div
               key={item.id}
-              ref={(el) => (refs.current[i] = el)}
+              ref={(el) => {
+                refs.current[i] = el;
+              }} // ✅ OK now
               className="relative group rounded-2xl overflow-hidden cursor-pointer
-                         transform transition-all duration-700 opacity-0"
+               transform transition-all duration-700 opacity-0"
               style={{ transform: "translateY(80px) scale(0.9)" }}
             >
               {/* Image */}
