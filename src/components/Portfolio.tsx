@@ -1,21 +1,37 @@
 // PortfolioCard3D.jsx  (drop-in component, zero extra deps)
-import { useState, useRef } from "react";
+import { useRef, useState, MouseEvent } from "react"; // ✅ React's generic type
 
-export default function PortfolioCard3D({ photo, name, role, bio }) {
+interface PortfolioCard3DProps {
+  photo: string;
+  name: string;
+  role: string;
+  bio: string;
+}
+
+export default function PortfolioCard3D({
+  photo,
+  name,
+  role,
+  bio,
+}: PortfolioCard3DProps) {
   const [hover, setHover] = useState(false);
-  const card = useRef(null);
+  const card = useRef<HTMLDivElement>(null);
 
-  const handleMove = (e) => {
-    const { left, top, width, height } = card.current.getBoundingClientRect();
+  const handleMove = (e: MouseEvent<HTMLDivElement>) => {
+    const el = card.current;
+    if (!el) return;
+
+    const { left, top, width, height } = el.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 25;
     const y = (e.clientY - top - height / 2) / 25;
-    card.current.style.transform = `perspective(1200px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.05)`;
+    el.style.transform = `perspective(1200px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.05)`;
   };
 
   const handleLeave = () => {
     setHover(false);
-    card.current.style.transform =
-      "perspective(1200px) rotateX(0) rotateY(0) scale(1)";
+    const el = card.current;
+    if (!el) return;
+    el.style.transform = "perspective(1200px) rotateX(0) rotateY(0) scale(1)";
   };
 
   return (
