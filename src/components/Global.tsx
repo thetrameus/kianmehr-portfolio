@@ -18,10 +18,7 @@ export default function GlobalServicesLight() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 flex flex-col items-center justify-center p-6">
       {/* soft animated blob */}
-      <div
-        className="absolute top-0 left-0 w-96 h-96 rounded-full bg-black/5 blur-3xl"
-        style={{ animation: "float 15s ease-in-out infinite alternate" }}
-      />
+      <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-black/5 blur-3xl" />
 
       <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-black">
         Global Services
