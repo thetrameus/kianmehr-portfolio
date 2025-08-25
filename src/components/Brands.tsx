@@ -33,7 +33,7 @@ export default function BrandShowcase3D() {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen bg-neutral-950 py-24 max-w-[80vh]">
+    <section className="flex items-center justify-center min-h-screen bg-neutral-950 py-24">
       <div className="text-center">
         <h2 className="text-5xl font-bold tracking-tighter text-white mb-4">
           Trusted By
@@ -46,7 +46,7 @@ export default function BrandShowcase3D() {
           ref={wrapRef}
           onMouseMove={handleMove}
           onMouseLeave={handleLeave}
-          className="relative grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-20"
+          className="relative grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-20"
           style={{
             transformStyle: "preserve-3d",
             transition: "transform .3s ease-out",

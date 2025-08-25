@@ -1,4 +1,4 @@
-// GlobalServicesLight.tsx – interactive light-mode page, black accents
+// GlobalServicesLight.tsx – overflow-free
 import { useState } from "react";
 
 const services = [
@@ -16,9 +16,15 @@ export default function GlobalServicesLight() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 flex flex-col items-center justify-center p-6">
-      {/* soft animated blob */}
-      <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-black/5 blur-3xl" />
+    <main className="min-h-screen w-full bg-gradient-to-br from-neutral-50 via-white to-neutral-100 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* contained animated blob (pseudo element) */}
+      <div
+        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 30%, #00000008 0%, transparent 70%)",
+        }}
+      />
 
       <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-black">
         Global Services
