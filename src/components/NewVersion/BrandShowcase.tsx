@@ -1,6 +1,6 @@
 // BrandShowcaseSection.tsx
 import { useState, useEffect } from "react";
-import { Star, Sparkles, Gem } from "lucide-react";
+import { Star, Sparkles } from "lucide-react";
 
 // =======================
 // Types

@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  esbuild: {
+    logLevel: "silent",
+  },
   optimizeDeps: {
     exclude: ["src/components/Unused"],
   },
