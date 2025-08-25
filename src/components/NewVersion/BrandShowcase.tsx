@@ -1,15 +1,118 @@
-// BrandShowcaseSection.jsx - Fixed Version
+// BrandShowcaseSection.tsx
 import { useState, useEffect } from "react";
 import { Star, Sparkles, Gem } from "lucide-react";
 
+// =======================
+// Types
+// =======================
+type Brand = {
+  name: string;
+  logo: string;
+  color: string;
+  glowColor: string;
+  category: string;
+  testimonial: string;
+  project: string;
+  year: string;
+  impact: string;
+  image: string;
+};
+
+interface BrandCardProps {
+  brand: Brand;
+  index: number;
+  isActive: boolean;
+  isHovered: boolean;
+  onHover: (i: number | null) => void;
+}
+
+// =======================
+// BrandCard Component
+// =======================
+const BrandCard = ({
+  brand,
+  index,
+  isActive,
+  isHovered,
+  onHover,
+}: BrandCardProps) => {
+  const rotation = isActive ? 0 : isHovered ? 5 : -10;
+  const scale = isActive ? 1 : isHovered ? 1.05 : 0.9;
+  const zIndex = isActive ? 10 : isHovered ? 5 : 1;
+
+  return (
+    <div
+      className="relative group"
+      style={{
+        transform: `perspective(1000px) rotateY(${rotation}deg) scale(${scale})`,
+        zIndex,
+        transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
+      onMouseEnter={() => onHover(index)}
+      onMouseLeave={() => onHover(null)}
+    >
+      <div
+        className={`relative w-80 h-96 rounded-3xl overflow-hidden shadow-2xl ${brand.glowColor} transition-all duration-500`}
+      >
+        {/* Background Gradient */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${brand.color} opacity-90`}
+        ></div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col justify-between p-6">
+          {/* Logo & Stars */}
+          <div className="flex justify-between items-start">
+            <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+              {brand.logo}
+            </div>
+            <div className="flex items-center space-x-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-4 h-4 text-yellow-400 fill-current"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Details */}
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-1">
+                {brand.name}
+              </h3>
+              <p className="text-white/80 text-sm">{brand.category}</p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2 text-white/70 text-sm">
+                <Sparkles className="w-4 h-4" />
+                <span>{brand.impact}</span>
+              </div>
+              <div className="text-white/60 text-xs">{brand.project}</div>
+              <div className="text-white/60 text-xs">{brand.year}</div>
+            </div>
+
+            <blockquote className="text-white/90 text-sm italic">
+              "{brand.testimonial}"
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// =======================
+// Main Component
+// =======================
 const BrandShowcaseSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [scrollProgress, setScrollProgress] = useState(0); // Fixed: Added scrollProgress state
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Fixed: Moved brands array inside component scope
-  const brands = [
+  const brands: Brand[] = [
     {
       name: "TechFlow Solutions",
       logo: "TF",
@@ -92,6 +195,7 @@ const BrandShowcaseSection = () => {
     },
   ];
 
+  // Scroll Progress
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
@@ -105,97 +209,17 @@ const BrandShowcaseSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Rest of your component remains the same...
-
-  // 3D Card Component
-  const BrandCard = ({ brand, index, isActive, isHovered }) => {
-    const rotation = isActive ? 0 : isHovered ? 5 : -10;
-    const scale = isActive ? 1 : isHovered ? 1.05 : 0.9;
-    const zIndex = isActive ? 10 : isHovered ? 5 : 1;
-
-    return (
-      <div
-        className="relative group"
-        style={{
-          transform: `perspective(1000px) rotateY(${rotation}deg) scale(${scale})`,
-          zIndex,
-          transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
-        onMouseEnter={() => setHoveredCard(index)}
-        onMouseLeave={() => setHoveredCard(null)}
-      >
-        <div
-          className={`relative w-80 h-96 rounded-3xl overflow-hidden shadow-2xl ${brand.glowColor} transition-all duration-500`}
-        >
-          {/* Background Gradient */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-br ${brand.color} opacity-90`}
-          ></div>
-
-          {/* Rest of BrandCard component */}
-          <div className="relative z-10 h-full flex flex-col justify-between p-6">
-            {/* Logo */}
-            <div className="flex justify-between items-start">
-              <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-2xl font-bold text-white shadow-lg">
-                {brand.logo}
-              </div>
-              <div className="flex items-center space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 text-yellow-400 fill-current"
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Details */}
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-1">
-                  {brand.name}
-                </h3>
-                <p className="text-white/80 text-sm">{brand.category}</p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center space-x-2 text-white/70 text-sm">
-                  <Sparkles className="w-4 h-4" />
-                  <span>{brand.impact}</span>
-                </div>
-                <div className="text-white/60 text-xs">{brand.project}</div>
-                <div className="text-white/60 text-xs">{brand.year}</div>
-              </div>
-
-              <blockquote className="text-white/90 text-sm italic">
-                "{brand.testimonial}"
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // Carousel Controls
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % brands.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + brands.length) % brands.length);
-  };
-
+  // AutoPlay
   useEffect(() => {
-    if (isAutoPlay) {
-      const interval = setInterval(nextSlide, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isAutoPlay, activeIndex]);
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % brands.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [brands.length]);
 
   return (
     <section id="brand-showcase" className="relative py-24 overflow-hidden">
-      {/* Background with fixed scrollProgress usage */}
+      {/* Background with scroll effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-orange-50"></div>
         <div
@@ -206,12 +230,12 @@ const BrandShowcaseSection = () => {
               linear-gradient(to bottom, #3b82f6 1px, transparent 1px)
             `,
             backgroundSize: "50px 50px",
-            transform: `translateX(${scrollProgress * 0.2}px)`, // Fixed: Using scrollProgress
+            transform: `translateX(${scrollProgress * 0.2}px)`,
           }}
         />
       </div>
 
-      {/* Rest of the component */}
+      {/* Heading */}
       <div className="text-center space-y-4 mb-16 relative z-10">
         <h2 className="text-4xl lg:text-6xl font-bold text-gray-900">
           Brands I've
@@ -226,46 +250,18 @@ const BrandShowcaseSection = () => {
         </p>
       </div>
 
-      {/* Simplified Grid Layout (as fallback) */}
+      {/* Cards Grid */}
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {brands.map((brand, index) => (
-            <div key={brand.name} className="relative group">
-              <div
-                className={`relative rounded-3xl bg-gradient-to-br ${brand.color} p-6 transform transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2`}
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-3xl blur opacity-30 group-hover:opacity-75 transition-opacity"></div>
-
-                <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${brand.color} flex items-center justify-center text-2xl font-bold text-white`}
-                    >
-                      {brand.logo}
-                    </div>
-                    <Gem className="w-6 h-6 text-gray-400" />
-                  </div>
-
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {brand.name}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">{brand.category}</p>
-
-                  <div className="space-y-2">
-                    <div className="text-gray-700 text-sm font-medium">
-                      {brand.impact}
-                    </div>
-                    <div className="text-gray-500 text-xs">
-                      {brand.project} • {brand.year}
-                    </div>
-                  </div>
-
-                  <blockquote className="text-gray-600 text-sm italic mt-4 pt-4 border-t border-gray-200">
-                    "{brand.testimonial}"
-                  </blockquote>
-                </div>
-              </div>
-            </div>
+            <BrandCard
+              key={brand.name}
+              brand={brand}
+              index={index}
+              isActive={index === activeIndex}
+              isHovered={hoveredCard === index}
+              onHover={setHoveredCard}
+            />
           ))}
         </div>
 
