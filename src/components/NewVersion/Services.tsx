@@ -1,72 +1,88 @@
-// ServicesSection.jsx
-import React from "react";
-import { BarChart3, Users, Shield, TrendingUp } from "lucide-react";
+// ServicesSection.tsx
+// سرویس‌های پویا، ساخته‌شده از مسیر کیانمهر — همچنان آرام و آبی-یخی
 
-const Services = () => {
-  const services = [
-    {
-      icon: BarChart3,
-      title: "Analytics Dashboard",
-      description: "Real-time insights with warm, intuitive data visualization",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: Users,
-      title: "Team Management",
-      description: "Collaborative tools designed for modern teams",
-      color: "from-orange-400 to-orange-500",
-    },
-    {
-      icon: Shield,
-      title: "Security & Compliance",
-      description: "Enterprise-grade security with warm user experience",
-      color: "from-gray-700 to-gray-800",
-    },
-    {
-      icon: TrendingUp,
-      title: "Growth Strategy",
-      description: "Data-driven insights for business expansion",
-      color: "from-blue-600 to-orange-400",
-    },
-  ];
+import { useState, useEffect } from "react";
+import {
+  BarChart3,
+  ClipboardList,
+  ShieldCheck,
+  TrendingUp,
+} from "lucide-react";
+
+// سرویس‌های مرتبط (نه کاملاً مستقیم)
+const baseServices = [
+  {
+    icon: BarChart3,
+    title: "داشبورد تحلیل",
+    lead: "بینش‌های لحظه‌ای که در یک نگاه قابل درک‌اند.",
+  },
+  {
+    icon: ClipboardList,
+    title: "مدیریت تیم",
+    lead: "ابزاری که اجازه می‌دهد افراد روی کار تمرکز کنند، نه روی روندها.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "امنیت و انطباق",
+    lead: "در حد سازمانی، بدون دردسرهای اضافی.",
+  },
+  {
+    icon: TrendingUp,
+    title: "استراتژی رشد",
+    lead: "گام‌های بعدی روشن، پشتیبانی‌شده با داده‌های شفاف.",
+  },
+];
+
+// تغییر ظریف برای تازه‌ماندن لیست
+const randomizeLead = (lead: string) => {
+  const flavors = ["آرام", "بی‌صدا", "شفاف", "روان", "پایدار", "ملایم"];
+  return lead.replace(
+    "—",
+    `— ${flavors[Math.floor(Math.random() * flavors.length)]} `
+  );
+};
+
+export default function ServicesSection() {
+  const [leads, setLeads] = useState(baseServices.map((s) => s.lead));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLeads((prev) => prev.map(randomizeLead));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section
-      id="services"
-      className="py-24 bg-gradient-to-b from-white to-blue-50/30"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-            Business Solutions that
-            <span className="text-blue-600"> Actually Work</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Streamline your operations with tools designed for the modern
-            business landscape
-          </p>
-        </div>
+    <section className="relative overflow-hidden bg-gradient-to-br py-20">
+      {/* دایره‌های شناور */}
+      <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-cyan-300/5 rounded-full blur-3xl -translate-z-10" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-300/5 rounded-full blur-3xl -translate-z-10" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-          {services.map((service, index) => (
-            <div key={index} className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div
-                  className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                >
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <header className="text-center mb-12">
+          <h2 className="text-3xl font-light text-sky-800">
+            آنچه میخوام ارائه می‌دهم
+          </h2>
+          <p className="text-sm text-sky-600 mt-1">
+            چهار تا سرویس برآمده از تجربه، تلاش و طراحی.
+          </p>
+        </header>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {baseServices.map(({ icon: Icon, title }, i) => (
+            <div
+              key={title}
+              className="group p-6 bg-white/40 backdrop-blur-sm border border-white/50 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <Icon className="w-7 h-7 text-cyan-600 mb-3 transition-transform group-hover:scale-110" />
+              <h3 className="text-base font-medium text-slate-900">{title}</h3>
+              <p className="text-xs text-gray-700 mt-2 transition-opacity">
+                {leads[i]}
+              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Services;
+}

@@ -7,7 +7,7 @@ import AppMinimal from "./AppMinimal";
 function App() {
   return (
     <Routes>
-      <Route path="/kianmehr-portfolio/" element={<Home />} />
+      <Route path="/kianmehr-portfolio/" element={<AppMinimal />} />
       <Route
         path="/kianmehr-portfolio/presentation-room"
         element={<PresentationRoom />}

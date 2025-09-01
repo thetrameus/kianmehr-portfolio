@@ -1,94 +1,80 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+// ContactFooter.tsx
+// Contact + glass ribbon footer with depth, blur & floating elements
 
-const Contact = () => {
+import ContactSection from "./ContactSection";
+
+export default function ContactFooter() {
   return (
-    <section id="contact" className="py-24 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold">
-            Ready to
-            <span className="text-transparent bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text">
-              {" "}
-              Transform
-            </span>
-            Your Business?
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Join thousands of teams already using BizFlow to streamline their
-            operations
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50">
+      {/* CONTACT */}
+      <div className="max-w-5xl mx-auto px-6 py-24">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-light text-sky-800">ارتباط با من</h2>
+          <p className="text-sm text-sky-600 mt-1">
+            باهام یک مورد متفاوت و جالب رو طراحی کنیم.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mt-16">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">Get in Touch</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-blue-400" />
-                  <span>hello@bizflow.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-blue-400" />
-                  <span>+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-blue-400" />
-                  <span>San Francisco, CA</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-800 rounded-2xl p-6">
-              <h4 className="text-lg font-semibold mb-3">
-                Start your free trial
-              </h4>
-              <p className="text-gray-300 mb-4">
-                No credit card required • 14-day free trial
-              </p>
-              <button className="w-full bg-gradient-to-r from-blue-600 to-orange-400 text-white py-3 rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
-                Start Free Trial
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-gray-800 rounded-2xl p-8">
-            <form className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-orange-400 text-white py-3 rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
+        <ContactSection />
       </div>
+
+      {/* GLASS FOOTER — elementful, blurred, floating */}
+      <footer className="relative">
+        {/* backdrop blur layer */}
+        <div className="absolute inset-0 bg-white/30 backdrop-blur-lg" />
+
+        <div className="relative max-w-7xl mx-auto px-6 py-12">
+          {/* floating glass ribbon */}
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+            {/* left: mini-grid */}
+            <div className="flex gap-6 text-xs">
+              {["حریم خصوصی", "قوانین", "کلوچه ها", "نمیدونم"].map((l) => (
+                <a
+                  key={l}
+                  href="#"
+                  className="text-sky-800 hover:text-sky-600 transition"
+                >
+                  {l}
+                </a>
+              ))}
+            </div>
+
+            {/* center: floating circles */}
+            <div className="flex gap-4">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-10 h-10 bg-white/40 backdrop-blur-sm border border-white/50 rounded-full flex items-center justify-center text-sky-700 text-xs font-bold shadow-md"
+                >
+                  {["©", "K", "M"][i]}
+                </div>
+              ))}
+            </div>
+
+            {/* right: social icons */}
+            <div className="flex gap-4">
+              {["X", "in", "GH"].map((label) => (
+                <a
+                  key={label}
+                  href="#"
+                  className="w-7 h-7 flex items-center justify-center bg-white/40 backdrop-blur-sm border border-white/50 rounded-full text-xs text-sky-800 shadow hover:bg-white/60 transition"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* subtle bottom line */}
+          <hr className="mt-8 border-white/20" />
+          <p
+            className="text-center text-xs text-sky-800/60 mt-4"
+            style={{ direction: "ltr" }}
+          >
+            © 2024 <strong>Kianmehr</strong> — Bulit on calm.
+          </p>
+        </div>
+      </footer>
     </section>
   );
-};
-
-export default Contact;
+}

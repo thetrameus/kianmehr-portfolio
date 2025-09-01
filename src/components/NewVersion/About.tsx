@@ -1,69 +1,80 @@
-import { CheckCircle } from "lucide-react";
+// KianmehrAbout.tsx
+// Icy-blue glass card with real data & subtle 3-D lift
 
-const About = () => {
-  const features = [
-    "99.9% uptime guarantee",
-    "Enterprise-grade security",
-    "24/7 customer support",
-    "GDPR & CCPA compliant",
-  ];
+import { CheckCircle, MapPin, Calendar, School, Users } from "lucide-react";
 
+const about = {
+  title: "سیستم‌های آرام برای ذهن‌های آرام",
+  summary:
+    "من ابزارهای مدیریت کسب‌وکار می‌سازم که مثل یک مهارت ذاتی حس می‌شوند — زاده‌ی نظم استخر، وضوح کلاس درس و تجربه‌ی کار در مقیاس محتوا.",
+  guarantees: [
+    "مربی شنا سطح ۳ با مدرک رسمی",
+    "مدیریت کسب‌وکار @ دانشگاه خیام",
+    "مدرک TTC زبان انگلیسی + FCE/CAE",
+    "بیش از ۶ پروژه واقعی و فعال",
+  ],
+  quote: {
+    text: "کیانمهر جریان‌های کاری پراکنده‌ی ما را به یک نفس تازه تبدیل کرد.",
+    author: "مصطفی میرنجاد",
+    role: "Mammoth Accelerator",
+  },
+};
+
+export default function KianmehrAbout() {
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Built for
-              <span className="text-transparent bg-gradient-to-r from-blue-600 to-orange-400 bg-clip-text">
-                {" "}
-                Ambitious Teams
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              We understand that modern businesses need tools that are both
-              powerful and approachable. That's why we've created a platform
-              that combines enterprise functionality with consumer-grade
-              simplicity.
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50 py-24">
+      {/* floating orbs */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-cyan-300/5 rounded-full blur-3xl -translate-z-10" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-300/5 rounded-full blur-3xl -translate-z-10" />
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
+          {/* left */}
+          <div className="space-y-5">
+            <h2 className="text-3xl font-light text-sky-800">{about.title}</h2>
+            <h4>یه جریان باحال</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {about.summary}
             </p>
 
-            <div className="space-y-4">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-orange-400" />
-                  <span className="text-gray-700">{feature}</span>
-                </div>
+            <ul className="space-y-3">
+              {about.guarantees.map((g) => (
+                <li key={g} className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-cyan-500" />
+                  <span className="text-sm text-gray-700">{g}</span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
 
-          <div className="relative">
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-2xl p-8">
-              <div className="bg-white rounded-xl p-6 space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">A</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">
-                      Sarah Chen
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      Operations Director
-                    </div>
-                  </div>
-                </div>
-                <blockquote className="text-gray-700 italic">
-                  "BizFlow transformed how we manage our 200-person team. The
-                  warm interface makes complex tasks feel approachable."
-                </blockquote>
+            {/* quick facts */}
+            <div className="flex flex-col sm:flex-row gap-6 text-xs text-gray-600 mt-6">
+              <div className="flex items-center gap-2">
+                <Calendar size={14} className="text-cyan-500" />
+                <span>21 خرداد 1389</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <School size={14} className="text-cyan-500" />
+                <span>دانشجوی خیام نیشابوری و حافظ</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className="text-cyan-500" />
+                <span>مشهدم</span>
               </div>
             </div>
           </div>
+
+          {/* right — glass testimonial */}
+          <aside className="p-6 bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl shadow-xl">
+            <blockquote className="text-sm text-gray-800 italic">
+              “{about.quote.text}”
+            </blockquote>
+            <div className="mt-3 text-xs text-gray-600">
+              <p className="font-medium">{about.quote.author}</p>
+              <p>{about.quote.role}</p>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

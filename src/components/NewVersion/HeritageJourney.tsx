@@ -1,135 +1,145 @@
-// HeritageJourney.tsx
-import { useState, useEffect } from "react";
-import { Waves } from "lucide-react";
+// KianmehrBiography.tsx
+// Minimal, alive, icy-blue crystal scroll — complete text woven into glass layers
 
-// Define a type for chapter
-type Chapter = {
-  id: string;
-  title: string;
-  subtitle: string;
-  icon: React.ComponentType<{ className?: string }>;
-  color: string;
-  image: string;
-  content: string;
-  skills: string[];
-  influence: string;
+import { useState, useEffect } from "react";
+import { Calendar, School, Users, Briefcase, MapPin } from "lucide-react";
+
+const bio = {
+  name: "کیانمهر سعید افخم‌الاشراف",
+  born: "۳۱ اکتبر ۲۰۰۵ · مشهد",
+  summary:
+    "فرزند یک معمار و یک ژنتیک‌دان؛ شناگر سابق که به تولیدکننده محتوا تبدیل شد و اکنون در سکوت، کار های خوبی می کند.",
+  sections: [
+    {
+      id: "pool",
+      title: "در آب، جریان را یافتم",
+      icon: <Calendar size={20} />,
+      image: "./src/assets/swimming.jpg",
+      text: `شنا را در شش‌سالگی زیر نظر مربی علیرضا ولی‌زاده در استخر کاظمیان آغاز کردم. واترپلو نوجوانان در آکادمی قهرمان (برادران تجددین) نظم تیمی را در من شکل داد. بعدها به‌صورت انفرادی در استخرهای فرومندی و ۱۵ خرداد تمرین کردم. زمستان ۲۰۲۵ — اخذ مدرک مربیگری شنا سطح ۳ زیر نظر مشتاق و ولی‌زاده تاکسی.`,
+      skills: ["انضباط", "جریان تربیتی", "دقت"],
+    },
+    {
+      id: "school",
+      title: "کلاس‌ها و مدرسه ها",
+      icon: <School size={20} />,
+      image: "./src/assets/kidding.jpg",
+      text: `مدرسه امید (۱ تا ۶) → نور امام رضا (۷) → علامه طباطبایی (۸) → پژوهش (۹). دبیرستان علوم انسانی در فرهنگ دهخدا، کاوش و حسینیه. پاییز ۲۰۲۴ — پذیرش در دانشگاه خیام مشهد، رشته مدیریت بازرگانی. یادگیری به معماری تبدیل شد.`,
+      skills: ["کنجکاوی", "ساختار", "نگرش علوم انسانی"],
+    },
+    {
+      id: "language",
+      title: "واژه‌هایی که پل می‌سازند",
+      icon: <Users size={20} />,
+      image: "./src/assets/man.jpg",
+      text: `انگلیسی  رو در کالج ماهان آغاز کردم و در مؤسسه آریانا عمیق‌تر یاد گرفتم. پاییز ۲۰۲۴ — اخذ مدرک TTC + آزمون‌های FCE و CAE. تدریس آشکار ساخت: شفافیت همان معماری است؛ هر واژه وزنی دارد. دانشجویان نخستین آزمونگران UX شدند.`,
+      skills: ["شفافیت", "همدلی", "آموزش"],
+    },
+    {
+      id: "content",
+      title: "پیکسل‌ها و پروژه‌ها",
+      icon: <Briefcase size={20} />,
+      image: "./src/assets/brand.png",
+      text: `کارآموزی خرداد ۲۰۲۴ در شتاب‌دهنده ماموت زیر نظر مصطفی میرنجاد و حمید حامد: مهستان، آوا لایف‌استایل، رویا طرح، سوپرفراست، واندرلند، پارک ملت، مجموعه قهرمانان. آذر ۲۰۲۴ — فعالیت مستقل به‌عنوان خالق محتوا با: کاردان، ISB، قصر موزاییک، نکسـیو، پخشوپلا، کاش پلاس.`,
+      skills: ["داستان‌سرایی", "مقیاس", "ترکوندن"],
+    },
+  ],
 };
 
-const HeritageJourney = () => {
-  const [activeChapter, setActiveChapter] = useState<number>(0);
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
+export default function KianmehrBiography() {
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(progress);
-    };
-
+    const handleScroll = () =>
+      setScrollProgress(
+        (window.pageYOffset /
+          (document.documentElement.scrollHeight - window.innerHeight)) *
+          100
+      );
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const chapters: Chapter[] = [
-    {
-      id: "swimming",
-      title: "In Water, I Found Flow",
-      subtitle: "Competitive Swimming & Life Philosophy",
-      icon: Waves,
-      color: "from-blue-500 to-cyan-400",
-      image:
-        "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&h=600&fit=crop",
-      content: `
-        Water taught me discipline before business did. ...
-      `,
-      skills: ["Discipline", "Systems Thinking", "Flow States", "Precision"],
-      influence:
-        "Translates to: Business process optimization and elegant problem-solving",
-    },
-    // ... rest of chapters
-  ];
-
   return (
-    <section
-      id="heritage-journey"
-      className="relative bg-gradient-to-b from-blue-50 via-white to-orange-50"
-    >
-      {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50">
+      {/* sky progress */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-sky-200 z-50">
         <div
-          className="h-full bg-gradient-to-r from-blue-600 to-orange-400 transition-all duration-300"
+          className="h-full bg-sky-600 transition-all"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      {/* Hero Section */}
-      {/* ... all your existing JSX ... */}
+      {/* Hero */}
+      <div className="min-h-screen flex items-center justify-center px-6 text-center space-y-4">
+        <div>
+          <h1 className="text-5xl font-light text-sky-800">{bio.name}</h1>
+          <p className="text-lg text-sky-600">{bio.born}</p>
+          <p className="text-sm text-gray-600 max-w-md mx-auto mt-4">
+            {bio.summary}
+          </p>
+        </div>
+      </div>
 
-      {/* Chapters */}
-      <div id="chapters" className="relative">
-        {chapters.map((chapter: Chapter) => (
-          <div
-            key={chapter.id}
-            className="min-h-screen flex items-center py-24"
+      {/* Glass chapters */}
+      <div className="max-w-5xl mx-auto px-6 space-y-32 py-20">
+        {bio.sections.map((section) => (
+          <article
+            key={section.id}
+            className="grid md:grid-cols-2 gap-8 p-6 bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl shadow-xl"
           >
-            {/* ... content and images */}
-          </div>
+            {/* image */}
+            <div className="relative">
+              <img
+                src={section.image}
+                alt={section.title}
+                className="w-full sm:h-[350px] md:h-[300px] rounded-2xl shadow-lg"
+              />
+              <div className="absolute -top-5 left-5 w-12 h-12 flex items-center justify-center bg-sky-400 text-white rounded-full shadow-md">
+                {section.icon}
+              </div>
+            </div>
+
+            {/* text */}
+            <div className="space-y-3">
+              <h2 className="text-2xl font-medium text-sky-800">
+                {section.title}
+              </h2>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {section.text}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {section.skills.map((s) => (
+                  <span
+                    key={s}
+                    className="px-3 py-1 bg-sky-100/50 text-sky-800 text-xs rounded-full"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
         ))}
       </div>
 
-      {/* Floating Navigation */}
-      <FloatingNav
-        chapters={chapters}
-        activeChapter={activeChapter}
-        setActiveChapter={setActiveChapter}
-      />
+      {/* crystal outro */}
+      <div className="py-16 text-center">
+        <h2 className="text-3xl font-light text-sky-800">استادم گفت</h2>
+        <p className="text-sm text-sky-600 mt-2">
+          {/* From pool to pixels — one calm wave at a time. */}
+          {/* گویند اگر می بخوری عرش بلرزد عرشی که به یک جام بلرزر چه ارزد؟ */}
+        </p>
+        <p className="text-sm text-sky-600 mt-1">در خانه ما زیر زمینی است</p>
+        <p className="text-sm text-sky-600 mt-1">
+          یک خمر خوری خشتی از آن نیز نلرزد
+        </p>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="mt-6 px-5 py-2 border border-sky-300 rounded-full text-sm text-sky-700 hover:bg-sky-100 transition"
+        >
+          از اول ببینم
+        </button>
+      </div>
     </section>
   );
-};
-
-// Floating Navigation Component
-type FloatingNavProps = {
-  chapters: Chapter[];
-  activeChapter: number;
-  setActiveChapter: React.Dispatch<React.SetStateAction<number>>;
-};
-
-const FloatingNav = ({
-  chapters,
-  activeChapter,
-  setActiveChapter,
-}: FloatingNavProps) => {
-  return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
-      <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl">
-        <div className="space-y-3">
-          {chapters.map((chapter: Chapter, index: number) => (
-            <button
-              key={chapter.id}
-              onClick={() => {
-                setActiveChapter(index);
-                const chaptersEl = document.getElementById("chapters");
-                if (chaptersEl) {
-                  chaptersEl.children[index]?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }
-              }}
-              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                activeChapter === index
-                  ? "bg-gradient-to-r from-blue-600 to-orange-400 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
-            >
-              <chapter.icon className="w-5 h-5" />
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export { HeritageJourney, FloatingNav };
+}

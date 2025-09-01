@@ -21,6 +21,13 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const navItemsPersian = [
+    { name: "خدمات", href: "#services" },
+    { name: "درباره", href: "#about" },
+    { name: "تدابیر", href: "#solutions" },
+    { name: "تماس", href: "#contact" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -33,23 +40,23 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <a
               href="#"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-gradient-to-r from-black to-sky-800 bg-clip-text text-transparent"
             >
-              BizFlow
+              KIANZEMN یا کیانمهر
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
+              {navItemsPersian.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#000000] to-[#009688] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
@@ -57,8 +64,8 @@ const Navbar = () => {
 
           {/* CTA Button - Warm Blue Gradient */}
           <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-blue-600 to-orange-400 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
-              Get Started
+            <button className="bg-gradient-to-r from-[#000000] to-[#009688] text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+              باهام تماس بگیر
             </button>
           </div>
 
@@ -89,8 +96,8 @@ const Navbar = () => {
               </a>
             ))}
             <div className="pt-4 pb-3 border-t border-gray-200">
-              <button className="w-full bg-gradient-to-r from-blue-600 to-orange-400 text-white px-6 py-2 rounded-full text-sm font-medium">
-                Get Started
+              <button className="w-full bg-gradient-to-r  from-[#000000] to-[#009688] text-white px-6 py-2 rounded-full text-sm font-medium">
+                باهام تماس بگیر
               </button>
             </div>
           </div>
