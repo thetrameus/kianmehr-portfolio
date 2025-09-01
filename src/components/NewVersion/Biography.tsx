@@ -9,7 +9,7 @@ const team = [
     id: 1,
     name: "حمید لولائی",
     role: "مؤسس و مدیر ارشد",
-    image: "./src/assets/Rasputin.jpg",
+    image: "/kianmehr-portfolio/public/Rasputin.jpg",
     bio: "برنامه‌نویسی را از ۱۲ سالگی آغاز کرد و اولین سرویس SaaS خود را در ۱۹ سالگی ساخت. حمید معتقد است مدیریت کسب‌وکار باید همچون یک توانایی ویژه احساس شود.",
     journey: [
       { year: 2018, text: "تأسیس BizFlow در یک خوابگاه دانشجویی" },
@@ -24,7 +24,7 @@ const team = [
     id: 2,
     name: "افسانه بایگان",
     role: "مدیر طراحی",
-    image: "./src/assets/zemn.jpg",
+    image: "/kianmehr-portfolio/public/zemn.jpg",
     journey: [
       { year: 2019, text: "به‌عنوان اولین طراح به تیم پیوست" },
       { year: 2021, text: "هدایت بازطراحی کامل برند" },
@@ -38,7 +38,7 @@ const team = [
     id: 3,
     name: "محسن رضایی",
     role: "مدیر ارشد فناوری (CTO)",
-    image: "./src/assets/iphone16-2015.jpg",
+    image: "/kianmehr-portfolio/public/iphone16-2015.jpg",
     journey: [
       { year: 1897, text: "اولین مهندس تیم شد" },
       { year: 346, text: "زیرساخت اصلی رو از پایه ساخت" },
