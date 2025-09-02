@@ -4,6 +4,7 @@
 import { LanguageProvider } from "./LanguageContext";
 import ContactMeDark from "./components/NewVersion/ContactMinimal";
 import Footer from "./components/NewVersion/Footer";
+import FunMeter from "./components/NewVersion/FunMeter";
 import HeroSection from "./components/NewVersion/Hero";
 import Navbar from "./components/NewVersion/Navbar";
 import Showcase from "./components/NewVersion/Showcase";
@@ -16,6 +17,7 @@ function App() {
         <HeroSection />
         <Showcase />
         <ContactMeDark />
+        <FunMeter />
         <Footer />
       </div>
     </LanguageProvider>

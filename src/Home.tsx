@@ -1,21 +1,21 @@
 import "./App.css";
-import CareerClipPath from "./components/Career";
-import ScrollGallery from "./components/Items";
-import PortfolioCard3D from "./components/Portfolio";
-import ContactAbout from "./components/Contact";
+import CareerClipPath from "./components/Section/Unused/Career";
+import ScrollGallery from "./components/Section/Unused/Items";
+import PortfolioCard3D from "./components/Section/Unused/Portfolio";
+import ContactAbout from "./components/Section/Unused/Contact";
 import CreativeFooter from "./components/Section/Footer";
-import QuickCart from "./components/Carts";
-import BrandShowcase3D from "./components/Brands";
+import QuickCart from "./components/Section/Unused/Carts";
+import BrandShowcase3D from "./components/Section/Unused/Brands";
 
-import FeedbackHeaderStrip from "./components/Feedback";
-import ProjectsTimelinePage from "./components/CareerList";
-import RealisticWaveVoiceSync from "./components/Voice";
-import EntrepreneurPricingPage from "./components/Entrepreneur";
+import FeedbackHeaderStrip from "./components/Section/Unused/Feedback";
+import ProjectsTimelinePage from "./components/Section/Unused/CareerList";
+import RealisticWaveVoiceSync from "./components/Section/Unused/Voice";
+import EntrepreneurPricingPage from "./components/Section/Unused/Entrepreneur";
 import UnifiedNav from "./components/Section/UnifiedNav";
 import HeroSection from "./components/Section/HeroSection";
-import GlobalServicesLight from "./components/Global";
-import UltraCreativePricing from "./components/Unused/Pricing";
-import CountdownRevealPage from "./components/Countdown";
+import GlobalServicesLight from "./components/Section/Unused/Global";
+import UltraCreativePricing from "./components/Section/Unused/Pricing";
+import CountdownRevealPage from "./components/Section/Unused/Countdown";
 
 export default function Home() {
   return (

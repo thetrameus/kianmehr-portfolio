@@ -8,8 +8,7 @@ const sections = [
     id: "Business",
     label: { fa: "کسب و کار", en: "Business" },
     title: { fa: "مدیریت و اجرا", en: "Administration" },
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400",
+    image: "/kianmehr-portfolio/brand.png",
     intro: {
       fa: "سیستم‌های معماری سطح بالا ساخته شده بر اساس نظم و انضباط.",
       en: "Architect-level systems built on swimming discipline.",
@@ -28,8 +27,7 @@ const sections = [
     id: "Creator",
     label: { fa: "تولید محتوا", en: "Content Creation" },
     title: { fa: "تولید محتوا", en: "Content Production" },
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=400",
+    image: "/kianmehr-portfolio/brand.png",
     intro: {
       fa: "بیش از ۲ میلیون بازدید در حوزه‌های مهمان‌نوازی، املاک و سرگرمی.",
       en: "2 M+ views across hospitality, real-estate & entertainment.",
@@ -48,8 +46,7 @@ const sections = [
     id: "Swimming",
     label: { fa: "مربیگری شنا", en: "Swimming Coaching" },
     title: { fa: "مربی درجه ۳", en: "Level 3 Coach" },
-    image:
-      "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&h=400",
+    image: "/kianmehr-portfolio/brand.png",
     intro: {
       fa: "۱۵ سال تجربه در خطوط شنا + گواهینامه درجه ۳.",
       en: "15 years lanes + Level 3 certificate.",
@@ -68,8 +65,7 @@ const sections = [
     id: "English",
     label: { fa: "زبان انگلیسی", en: "English Language" },
     title: { fa: "مربیگری TTC انگلیسی", en: "TTC English Coaching" },
-    image:
-      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&h=400",
+    image: "/kianmehr-portfolio/brand.png",
     intro: {
       fa: "TTC + FCE/CAE — دروس مانند مکالمه احساس می‌شوند.",
       en: "TTC + FCE/CAE — lessons feel like conversations.",
@@ -128,7 +124,7 @@ const ContactMeDark = () => {
               {/* thin arrow that appears */}
               <span
                 className={`absolute ${
-                  isRTL ? "right-5 origin-right" : "left-5 origin-left"
+                  isRTL ? "left-5 origin-left" : "right-5 origin-right"
                 } h-px w-4 bg-gray-200 scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
               />
             </button>

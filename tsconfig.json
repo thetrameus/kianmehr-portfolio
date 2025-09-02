@@ -1,6 +1,6 @@
 {
   "files": [],
-  "exclude": ["src/components/Unused"],
+  "exclude": ["src/components/Section/Unused"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
