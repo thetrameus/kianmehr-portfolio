@@ -1,93 +1,87 @@
+import { useLanguage } from "../../LanguageContext";
+
 const Footer = () => {
+  const { lang } = useLanguage();
+  const isRTL = lang === 0;
+
+  // Content based on language
+  const content = {
+    brand: isRTL ? "کیانمهر" : "Kianmehr",
+    copyright: "© 2025",
+    navItems: [
+      { href: "#", text: isRTL ? "درباره" : "About" },
+      { href: "#", text: isRTL ? "تماس" : "Contact" },
+      { href: "#", text: isRTL ? "پروژه‌ها" : "Projects" },
+    ],
+    socialItems: [
+      { href: "#", text: "LinkedIn" },
+      { href: "#", text: "Telegram" },
+    ],
+  };
+
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold text-white mb-4">BizFlow</h3>
-            <p className="text-gray-400">
-              Modern business administration for ambitious teams.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Product</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Security
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Careers
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
-                  Status
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400">© 2024 BizFlow. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
-            >
-              Privacy
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
-            >
-              Terms
-            </a>
-          </div>
-        </div>
+    <footer
+      className="relative isolate text-gray-300/80 grid md:grid-cols-3 gap-8 items-center py-12 px-6 max-w-7xl mx-auto overflow-hidden"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
+      {/* animated black & white gradient (same as hero) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-black"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 60% 80%, rgba(255,255,255,.04) 0%, transparent 60%)," +
+            "radial-gradient(circle at 20% 40%, rgba(255,255,255,.03) 0%, transparent 50%)," +
+            "conic-gradient(from 180deg at 50% 50%, #000 0deg, #0a0a0a 60deg, #000 120deg, #111 180deg, #000 240deg, #0a0a0a 300deg, #000 360deg)",
+          animation: "alive 18s linear infinite reverse",
+        }}
+      />
+
+      {/* left – minimal branding */}
+      <div className="text-sm font-medium">
+        {content.brand}
+        <span className="text-teal-400 ml-1">{content.copyright}</span>
       </div>
+
+      {/* center – micro navigation */}
+      <nav className="flex justify-center gap-6 text-xs tracking-wider">
+        {content.navItems.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            className="hover:text-teal-400 transition-colors"
+          >
+            {item.text}
+          </a>
+        ))}
+      </nav>
+
+      {/* right – social line */}
+      <div className="flex md:justify-end gap-5 text-xs">
+        {content.socialItems.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            className="hover:text-teal-400 transition-colors"
+          >
+            {item.text}
+          </a>
+        ))}
+      </div>
+
+      <style jsx>{`
+        @keyframes alive {
+          0% {
+            filter: hue-rotate(0deg) brightness(1);
+          }
+          50% {
+            filter: hue-rotate(20deg) brightness(1.05);
+          }
+          100% {
+            filter: hue-rotate(0deg) brightness(1);
+          }
+        }
+      `}</style>
     </footer>
   );
 };

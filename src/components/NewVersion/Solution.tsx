@@ -20,8 +20,8 @@ const solutions = [
 const SolutionsSection = () => (
   <section className="py-20 px-6 max-w-5xl mx-auto">
     <header className="text-center mb-10">
-      <h2 className="text-3xl font-medium text-slate-900">قدرتی آرام</h2>
-      <p className="mt-1 text-sm text-slate-600">
+      <h2 className="text-3xl font-medium text-gray-300">قدرتی آرام</h2>
+      <p className="mt-1 text-sm text-slate-200">
         ساخته‌شده برای رشد، بدون دردسرهای رشد.
       </p>
     </header>
@@ -30,7 +30,7 @@ const SolutionsSection = () => (
       {solutions.map(({ icon: Icon, title, lead }) => (
         <div
           key={title}
-          className="p-5 border border-slate-200 rounded-lg bg-white/60 backdrop-blur hover:border-teal-500 hover:-translate-y-1 transition-all"
+          className="p-5 border border-slate-200 rounded-lg bg-white/90 backdrop-blur hover:border-teal-500 hover:-translate-y-1 transition-all"
         >
           <Icon className="w-5 h-5 text-teal-600 mb-2" />
           <h3 className="text-sm font-medium text-slate-900">{title}</h3>

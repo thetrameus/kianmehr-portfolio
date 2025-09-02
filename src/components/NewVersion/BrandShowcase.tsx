@@ -68,15 +68,15 @@ const BrandCard: FC<{ proj: (typeof brands)[0]; active: boolean }> = ({
 }) => (
   <article
     style={{ perspective: "1000px" }}
-    className={`relative p-6 bg-white/30 backdrop-blur-sm border border-white/40 rounded-2xl shadow-lg transition-all duration-500 ${
+    className={`relative p-6 bg-white/95 backdrop-blur-sm border-gray border-4 rounded-2xl shadow-lg transition-all duration-400 ${
       active
         ? "scale-105 shadow-2xl -translate-y-2 rotate-x-2 rotate-y-2"
         : "hover:shadow-xl hover:-translate-y-1"
     }`}
   >
     <div
-      className={`absolute inset-0 rounded-2xl border-2 transition-opacity duration-500 ${
-        active ? "border-cyan-300/40" : "border-transparent"
+      className={`absolute inset-0 rounded-2xl border-2 transition-opacity duration-300 ${
+        active ? "border-gray-300" : ""
       }`}
     />
     {/* client logo / icon */}
@@ -94,17 +94,17 @@ export default function BrandShowcaseSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-blue-50 py-24">
+    <section className="relative overflow-hidden bg-black py-24">
       <Orbs />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900">
-            Brands & Projects{" "}
-            <span className="text-cyan-600">quietly shaped</span>
+          <h2 className="text-4xl md:text-5xl font-light text-gray-300">
+            <div>کاتالوگ برندینگ</div>
+            {/* <span className="text-gray-200">quietly shaped</span> */}
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Every line of code, every clip, every calm metric.
+          <p className="mt-2 text-sm text-gray-200">
+            همه چی رو تحت پوشش قرار میدیم
           </p>
         </div>
 
@@ -122,11 +122,11 @@ export default function BrandShowcaseSection() {
 
         {/* floating crystal stat */}
         <div className="mt-16 flex justify-center">
-          <div className="flex flex-wrap gap-6 px-6 py-4 bg-white/60 backdrop-blur border border-white/30 rounded-2xl shadow-lg justify-center">
+          <div className="flex flex-wrap gap-6 px-6 py-4 backdrop-blur border border-white/10 rounded-2xl shadow-lg justify-center">
             {["۸+", "۴۰۰٪", "۱۰ هزار", "۲ میلیون+", "۵۰٪"].map((v, i) => (
               <div key={i} className="text-center min-w-[80px]">
-                <p className="font-semibold text-sm text-gray-900">{v}</p>
-                <p className="text-xs text-gray-500">
+                <p className="font-semibold text-sm text-white/80">{v}</p>
+                <p className="text-xs text-white ">
                   {
                     [
                       "پروژه",

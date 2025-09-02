@@ -59,26 +59,26 @@ const Pricing = () => {
         {plans.map((p: any) => (
           <div
             key={p.name}
-            className="group relative border border-slate-200 rounded-2xl bg-white/50 backdrop-blur p-6 transition hover:shadow-lg hover:-translate-y-1"
+            className="group relative border border-slate-300/10 rounded-2xl bg-black backdrop-blur p-6 transition hover:shadow-lg hover:-translate-y-1"
           >
             {p.badge && (
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs bg-slate-800 text-white px-3 py-1 rounded-full">
                 {p.badge}
               </span>
             )}
-            <h3 className="text-lg font-medium text-slate-900">{p.name}</h3>
-            <p className="text-sm text-slate-500 mb-4">{p.lead}</p>
+            <h3 className="text-lg font-medium text-gray-300">{p.name}</h3>
+            <p className="text-sm text-gray-500 mb-4">{p.lead}</p>
 
             <div className="flex items-baseline">
-              <span className="text-3xl font-medium text-slate-900">
+              <span className="text-3xl font-medium text-gray-200">
                 ${p.price[billing]}
               </span>
-              <span className="ml-1 text-sm text-slate-500">
+              <span className="ml-1 text-sm text-gray-200">
                 /{billing === "monthly" ? "ماه" : "سال"}
               </span>
             </div>
 
-            <ul className="mt-4 space-y-1.5 text-sm text-slate-600">
+            <ul className="mt-4 space-y-1.5 text-sm text-gray-400">
               {p.features.map((f: any) => (
                 <li key={f} className="flex items-center gap-2">
                   <Check size={14} className="text-slate-400" />
@@ -87,14 +87,14 @@ const Pricing = () => {
               ))}
             </ul>
 
-            <button className="w-full mt-6 flex items-center justify-center gap-2 py-2 text-sm font-medium text-slate-900 border border-slate-300 rounded-lg hover:bg-slate-800 hover:text-white transition">
+            <button className="w-full mt-6 flex items-center justify-center gap-2 py-2 text-sm font-medium text-gray-300 border-3 border-slate-900 rounded-lg hover:bg-slate-800 hover:text-white transition">
               انتخاب {p.name} <ArrowRight size={14} />
             </button>
           </div>
         ))}
       </div>
 
-      <p className="text-center mt-8 text-xs text-slate-500">
+      <p className="text-center mt-8 text-xs text-white">
         تا 30 روز هم میشه کنسل کنین ، من کمکتون می کنم
       </p>
     </section>

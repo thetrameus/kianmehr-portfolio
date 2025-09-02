@@ -2,7 +2,7 @@
 // Minimal, alive, icy-blue crystal scroll — complete text woven into glass layers
 
 import { useState, useEffect } from "react";
-import { Calendar, School, Users, Briefcase, MapPin } from "lucide-react";
+import { Calendar, School, Users, Briefcase } from "lucide-react";
 
 const bio = {
   name: "کیانمهر سعید افخم‌الاشراف",
@@ -60,7 +60,7 @@ export default function KianmehrBiography() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50">
+    <section className="relative overflow-hidden ">
       {/* sky progress */}
       <div className="fixed top-0 left-0 w-full h-1 bg-sky-200 z-50">
         <div
@@ -72,9 +72,9 @@ export default function KianmehrBiography() {
       {/* Hero */}
       <div className="min-h-screen flex items-center justify-center px-6 text-center space-y-4">
         <div>
-          <h1 className="text-5xl font-light text-sky-800">{bio.name}</h1>
-          <p className="text-lg text-sky-600">{bio.born}</p>
-          <p className="text-sm text-gray-600 max-w-md mx-auto mt-4">
+          <h1 className="text-5xl font-light text-gray-300">{bio.name}</h1>
+          <p className="text-lg text-gray-300">{bio.born}</p>
+          <p className="text-sm text-gray-400 max-w-md mx-auto mt-4">
             {bio.summary}
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function KianmehrBiography() {
         {bio.sections.map((section) => (
           <article
             key={section.id}
-            className="grid md:grid-cols-2 gap-8 p-6 bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl shadow-xl"
+            className="grid md:grid-cols-2 gap-8 p-6 backdrop-blur-md border border-white/13 rounded-3xl shadow-md shadow-blue-200/35"
           >
             {/* image */}
             <div className="relative">
@@ -94,24 +94,24 @@ export default function KianmehrBiography() {
                 alt={section.title}
                 className="w-full sm:h-[350px] md:h-[300px] rounded-2xl shadow-lg"
               />
-              <div className="absolute -top-5 left-5 w-12 h-12 flex items-center justify-center bg-sky-400 text-white rounded-full shadow-md">
+              <div className="absolute -top-5 left-5 w-12 h-12 flex items-center justify-center bg-white text-black rounded-full shadow-md">
                 {section.icon}
               </div>
             </div>
 
             {/* text */}
             <div className="space-y-3">
-              <h2 className="text-2xl font-medium text-sky-800">
+              <h2 className="text-2xl font-medium text-gray-100">
                 {section.title}
               </h2>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-white/80 leading-relaxed">
                 {section.text}
               </p>
               <div className="flex flex-wrap gap-2">
                 {section.skills.map((s) => (
                   <span
                     key={s}
-                    className="px-3 py-1 bg-sky-100/50 text-sky-800 text-xs rounded-full"
+                    className="px-3 py-1 bg-white/95 text-black text-xs rounded-full"
                   >
                     {s}
                   </span>
@@ -124,18 +124,16 @@ export default function KianmehrBiography() {
 
       {/* crystal outro */}
       <div className="py-16 text-center">
-        <h2 className="text-3xl font-light text-sky-800">استادم گفت</h2>
-        <p className="text-sm text-sky-600 mt-2">
+        <h2 className="text-3xl font-light text-white">استادم گفت</h2>
+        <p className="text-sm text-white mt-2">
           {/* From pool to pixels — one calm wave at a time. */}
           {/* گویند اگر می بخوری عرش بلرزد عرشی که به یک جام بلرزر چه ارزد؟ */}
         </p>
-        <p className="text-sm text-sky-600 mt-1">در خانه ما زیر زمینی است</p>
-        <p className="text-sm text-sky-600 mt-1">
-          یک خمر خوری خشتی از آن نیز نلرزد
-        </p>
+        <p className="mt-1">در خانه ما زیر زمینی است</p>
+        <p className="mt-1">یک خمر خوری خشتی از آن نیز نلرزد</p>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="mt-6 px-5 py-2 border border-sky-300 rounded-full text-sm text-sky-700 hover:bg-sky-100 transition"
+          className="mt-6 px-5 py-2 border border-white/8 rounded-full text-sm text-white hover:bg-sky-100 transition"
         >
           از اول ببینم
         </button>

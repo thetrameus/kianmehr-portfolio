@@ -1,55 +1,92 @@
-import "./App.css";
-import Navbar from "./components/NewVersion/Navbar";
-import HeroSection from "./components/NewVersion/Hero";
-import About from "./components/NewVersion/About";
-import Services from "./components/NewVersion/Services";
-import Solutions from "./components/NewVersion/Solution";
-import Biography from "./components/NewVersion/Biography";
-import HeritageJourney from "./components/NewVersion/HeritageJourney";
-import Contact from "./components/NewVersion/Contact";
-import Footer from "./components/NewVersion/Footer";
-import BrandShowcase from "./components/NewVersion/BrandShowcase";
-import Pricing from "./components/NewVersion/Pricing";
-import JourneyMap from "./components/NewVersion/JourneyMap";
-import {
-  JourneyCards,
-  JourneyRoadmap,
-} from "./components/NewVersion/JourneyRoadmap";
-import { MicroJourney, NanoJourney } from "./components/NewVersion/Nano";
+// LanguageContext.tsx
 
-function AppMinimal() {
+// App.tsx
+import { LanguageProvider } from "./LanguageContext";
+import ContactMeDark from "./components/NewVersion/ContactMinimal";
+import Footer from "./components/NewVersion/Footer";
+import HeroSection from "./components/NewVersion/Hero";
+import Navbar from "./components/NewVersion/Navbar";
+import Showcase from "./components/NewVersion/Showcase";
+
+function App() {
   return (
-    <div>
-      {/* <Home /> */}
+    <LanguageProvider>
       <div className="App">
         <Navbar />
-
-        {/* Minimalled */}
         <HeroSection />
-        <Services />
-        <About />
-        <Solutions />
-        <Biography />
-        <HeritageJourney />
-        <BrandShowcase />
-
-        {/* <Pricing /> */}
-        <Pricing />
-
-        {/* <QuickContactWidget /> */}
-
-        {/* <TeamCulture /> */}
-
-        {/* <JourneyCards /> */}
-        {/* <JourneyRoadmap /> */}
-
-        {/* <NanoJourney /> */}
-        {/* <MicroJourney /> */}
-        {/* <JourneyMap /> */}
-        <Contact />
+        <Showcase />
+        <ContactMeDark />
+        <Footer />
       </div>
-    </div>
+    </LanguageProvider>
   );
 }
 
-export default AppMinimal;
+export default App;
+
+{
+  /* <Services /> */
+}
+
+{
+  /* <About /> */
+}
+{
+  /* <Solutions /> */
+}
+{
+  /* <Biography /> */
+}
+{
+  /* <HeritageJourney /> */
+}
+{
+  /* <BrandShowcase /> */
+}
+
+{
+  /* <GrayMedalSection /> */
+}
+{
+  /* <Pricing /> */
+}
+
+{
+  /* <KianmehrBiography /> */
+}
+
+{
+  /* <KianmehrResume /> */
+}
+{
+  /* <GlassyEffectBio /> */
+}
+
+{
+  /* <QuickContactWidget /> */
+}
+
+{
+  /* <TeamCulture /> */
+}
+
+{
+  /* <JourneyCards /> */
+}
+{
+  /* <JourneyRoadmap /> */
+}
+
+{
+  /* <NanoJourney /> */
+}
+{
+  /* <MicroJourney /> */
+}
+{
+  /* <JourneyMap /> */
+}
+
+{
+  /* <Contact /> */
+}

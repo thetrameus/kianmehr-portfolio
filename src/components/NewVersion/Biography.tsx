@@ -55,31 +55,30 @@ export default function BiographySection() {
   const person = team[active];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-0 via-white to-cyan-10 py-24">
+    <section className="relative overflow-hidden  py-24">
       {/* floating orbs */}
-      <div className="absolute top-0 left-1/4 w-80 h-80 bg-cyan-300/10 rounded-full blur-2xl -translate-z-10" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-300/10 rounded-full blur-2xl -translate-z-10" />
+      <div className="absolute top-0 left-1/4 w-80 h-80 bg-gray-200/5 rounded-full blur-2xl -translate-z-10" />
+      <div className="absolute top-0 left-2/4 w-80 h-80 bg-gray-800/5 rounded-full blur-2xl -translate-z-10" />
+      <div className="absolute top-0 left-3/4 w-80 h-80 bg-gray-500/5 rounded-full blur-2xl -translate-z-10" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gray-200/10 rounded-full blur-2xl -translate-z-10" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-light text-sky-800">Meet the team</h2>
-          <p className="text-sm text-sky-600 mt-1">
-            Quiet architects behind the calm.
-          </p>
+          <h2 className="text-5xl font-light text-gray-100">اعضای تیم ما</h2>
         </div>
 
         {/* circular selector */}
         <div className="flex justify-center mb-10">
-          <div className="flex gap-2 p-2 bg-white/40 backdrop-blur-sm border border-white/40 rounded-full">
+          <div className="flex gap-2 p-2 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full">
             {team.map((t, i) => (
               <button
                 key={t.name}
                 onClick={() => setActive(i)}
                 className={`w-12 h-12 rounded-full text-xs font-medium transition-all duration-300 ${
                   active === i
-                    ? "bg-sky-500 text-white shadow-lg"
-                    : "bg-white/50 text-sky-700 hover:bg-sky-100"
+                    ? "bg-white text-gray-700 shadow-lg"
+                    : "bg-gray-700/10 text-white hover:bg-white/10"
                 }`}
               >
                 {t.name[0]}
@@ -90,7 +89,7 @@ export default function BiographySection() {
 
         {/* crystal card */}
         <article
-          className="relative grid md:grid-cols-5 gap-8 items-center p-6 bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl shadow-2xl"
+          className="relative grid md:grid-cols-5 gap-8 items-center p-6 bg-black backdrop-blur-md border border-white/12 rounded-3xl shadow-2xl"
           style={{ perspective: "1000px" }}
         >
           {/* image */}
@@ -107,20 +106,20 @@ export default function BiographySection() {
           {/* text */}
           <div className="md:col-span-3 space-y-4">
             <header>
-              <h3 className="text-2xl font-medium text-sky-800">
+              <h3 className="text-2xl font-medium text-gray-100">
                 {person.name}
               </h3>
-              <p className="text-sm text-cyan-600">{person.role}</p>
-              <p className="mt-2 text-sm text-gray-700 italic">{person.bio}</p>
+              <p className="text-sm text-gray-500">{person.role}</p>
+              <p className="mt-2 text-sm text-gray-500 italic">{person.bio}</p>
             </header>
 
-            <div className="flex items-center gap-4 text-sm text-gray-600">
+            <div className="flex items-center gap-4 text-sm text-gray-300">
               <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-cyan-500" />
+                <MapPin size={14} className="text-gray-500" />
                 <span>{person.location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-cyan-500" />
+                <Mail size={14} className="text-gray-500" />
                 <a href={`mailto:${person.email}`} className="hover:underline">
                   {person.email}
                 </a>
@@ -132,9 +131,9 @@ export default function BiographySection() {
               {person.journey.map(({ year, text }) => (
                 <div
                   key={year}
-                  className="flex items-center gap-3 text-sm text-gray-700"
+                  className="flex items-center gap-3 text-sm text-gray-300"
                 >
-                  <div className="w-8 h-8 flex items-center justify-center bg-sky-200/50 rounded-full text-xs font-bold text-sky-800">
+                  <div className="w-8 h-8 flex items-center justify-center bg-black rounded-full text-xs font-bold text-gray-400/90">
                     {year}
                   </div>
                   <span>{text}</span>

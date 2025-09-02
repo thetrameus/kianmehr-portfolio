@@ -53,17 +53,17 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br py-20">
+    <section className="relative overflow-hidden bg-gradient-to-br py-20 ">
       {/* دایره‌های شناور */}
-      <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-cyan-300/5 rounded-full blur-3xl -translate-z-10" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-300/5 rounded-full blur-3xl -translate-z-10" />
+      <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-black rounded-full blur-3xl -translate-z-10" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-black rounded-full blur-3xl -translate-z-10" />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 relative z-10 ">
         <header className="text-center mb-12">
-          <h2 className="text-3xl font-light text-sky-800">
+          <h2 className="text-3xl font-light text-gray-200">
             آنچه میخوام ارائه می‌دهم
           </h2>
-          <p className="text-sm text-sky-600 mt-1">
+          <p className="text-sm text-gray-200 mt-1">
             چهار تا سرویس برآمده از تجربه، تلاش و طراحی.
           </p>
         </header>
@@ -72,7 +72,7 @@ export default function ServicesSection() {
           {baseServices.map(({ icon: Icon, title }, i) => (
             <div
               key={title}
-              className="group p-6 bg-white/40 backdrop-blur-sm border border-white/50 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="group p-6 bg-white backdrop-blur-sm border border-white/50 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <Icon className="w-7 h-7 text-cyan-600 mb-3 transition-transform group-hover:scale-110" />
               <h3 className="text-base font-medium text-slate-900">{title}</h3>
