@@ -72,7 +72,7 @@ const Navbar = () => {
               {lang === 0 ? "باهام تماس بگیر" : "Contact Me"}
             </button>
             <div className="flex items-center gap-2">
-              {["🇮🇷", "🇺🇸"].map((flag, idx) => (
+              {["IR", "EN"].map((flag, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleLanguage(idx)}
@@ -98,7 +98,7 @@ const Navbar = () => {
             </button> */}
 
             <div className="flex items-center gap-2">
-              {["🇮🇷", "🇺🇸"].map((flag, idx) => (
+              {["IR", "EN"].map((flag, idx) => (
                 <button
                   key={idx}
                   onClick={() => setLang(idx)}
