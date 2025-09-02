@@ -37,22 +37,22 @@ const Showcase = () => {
           style={{ animation: "scroll 60s linear infinite" }}
         >
           <img
-            src="/kianmehr-portfolio/src/assets/1.jpg"
+            src="/kianmehr-portfolio/1.jpg"
             alt=""
             className="w-1/4 h-full object-cover grayscale"
           />
           <img
-            src="/kianmehr-portfolio/src/assets/2.jpg"
+            src="/kianmehr-portfolio/2.jpg"
             alt=""
             className="w-1/4 h-full object-cover grayscale"
           />
           <img
-            src="/kianmehr-portfolio/src/assets/3.jpg"
+            src="/kianmehr-portfolio/3.jpg"
             alt=""
             className="w-1/4 h-full object-cover grayscale"
           />
           <img
-            src="/kianmehr-portfolio/src/assets/4.jpg"
+            src="/kianmehr-portfolio/4.jpg"
             alt=""
             className="w-1/4 h-full object-cover grayscale"
           />
@@ -77,7 +77,7 @@ const Showcase = () => {
         {/* single large preview */}
         <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
           <img
-            src="/kianmehr-portfolio/src/assets/5.jpg"
+            src="/kianmehr-portfolio/5.jpg"
             alt={isRTL ? "پروژه منتخب" : "Featured project"}
             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
           />
