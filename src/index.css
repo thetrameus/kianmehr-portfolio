@@ -3,6 +3,6 @@
   src: url("/Consola.ttf") format("truetype");
 }
 body {
-  font-family: "Fira Code", monospace;
+  font-family: "Consolas", monospace;
   font-weight: 400;
 }
