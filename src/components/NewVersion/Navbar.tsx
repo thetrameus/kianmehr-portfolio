@@ -31,36 +31,40 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`roboto-mono fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-black/60 backdrop-blur-md shadow-sm text-gray-800 "
           : "bg-transparent"
       }`}
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8  ">
         <div className="flex justify-between items-center h-16">
           {/* Logo - Warm Blue */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 items-center">
             <a
               href="#"
-              className="text-2xl text-gray-50 font-bold bg-gradient-to-r from-black to-sky-800 bg-clip-text"
+              className="tracking-normal text-xl text-gray-50 bg-gradient-to-r font-mono from-black to-sky-800 bg-clip-text"
             >
-              KIANMEHR یا کیانمهر
+              {lang === 0 ? (
+                <span className="flex ">KIANMEHR یا کیانمهر</span>
+              ) : (
+                <span className="">KIANMEHR</span>
+              )}
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline md:space-x-4 lg:space-x-8">
               {navItems.map((item) => (
                 <a
                   key={isRTL ? item.name.fa : item.name.en}
                   href={item.href}
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+                  className="text-gray-300 font-mono hover:text-white px-2 py-2 text-sm font-medium transition-colors duration-200 relative group"
                 >
                   {isRTL ? item.name.fa : item.name.en}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#000000] to-sky-200 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
@@ -68,18 +72,18 @@ const Navbar = () => {
 
           {/* CTA Button - Warm Blue Gradient */}
           <div className="hidden md:flex gap-2">
-            <button className="bg-gradient-to-r from-[#111620] to-sky-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105">
+            <button className="bg-gradient-to-r from-[#111620] to-sky-800 text-white px-3 md:px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105">
               {lang === 0 ? "باهام تماس بگیر" : "Contact Me"}
             </button>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2">
               {["IR", "EN"].map((flag, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleLanguage(idx)}
-                  className={`w-7 h-7 rounded-full text-xs transition-all duration-300 ${
+                  className={`w-5 h-5 lg:w-7 lg:h-7 rounded-full text-xs transition-all duration-300 ${
                     lang === idx
                       ? "bg-cyan-600 text-white scale-110"
-                      : "bg-gray-800 text-gray-200 hover:bg-gray-700"
+                      : "bg-gray-800  text-gray-200 hover:bg-gray-700"
                   }`}
                 >
                   {flag}
@@ -120,18 +124,19 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-50/10">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItemsPersian.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
+            {navItems.map((item) => (
+              // <a
+              //   key={item.name}
+              //   href={item.href}
+              //   className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+              //   onClick={() => setIsOpen(false)}
+              // >
+              //   {item.name}
+              // </a>
+              <div></div>
             ))}
             <div className="pt-4 pb-3 border-t  border-gray-50/10">
-              <button className="w-full bg-gradient-to-r from-[#111620] to-sky-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+              <button className="w-full bg-gradient-to-r from-[#111620] to-sky-800 text-white px-6 py-2 rounded-full roboto-mono">
                 باهام تماس بگیر
               </button>
             </div>

@@ -43,7 +43,7 @@ const sections = [
     contact: "creator@kianmehr.com",
   },
   {
-    id: "Swimming",
+    id: "Swimmm",
     label: { fa: "مربیگری شنا", en: "Swimming Coaching" },
     title: { fa: "مربی درجه ۳", en: "Level 3 Coach" },
     image: "/kianmehr-portfolio/brand.png",
@@ -95,38 +95,56 @@ const ContactMeDark = () => {
     work: isRTL ? "کارها" : "Work",
     callMe: isRTL ? "تماس با من" : "Call Me",
     callAIToCallMe: isRTL
-      ? "تماس هوش مصنوعی برای تماس با من"
+      ? "همراه با هوش مصنوعی برای تماس با من"
       : "Call AI to Call Me",
   };
 
   return (
-    <section className="bg-black text-gray-100 min-h-screen flex items-center justify-center px-6">
+    <section className="bg-black text-gray-100 min-h-screen flex items-center justify-center px-6 font-mono">
       {!active ? (
-        <div className="space-y-2">
-          {sections.map((s) => (
+        // inside the <section> block, replace the button list with:
+
+        <div className="flex flex-col space-y-3">
+          {sections.map((s, idx) => (
             <button
               key={s.id}
               onClick={() => setActiveId(s.id)}
-              className="group relative flex items-center gap-4 px-5 py-3 bg-black border-t border-b border-gray-200/20
-                   hover:border-gray-100/70 transition-colors duration-300 w-72"
+              className="group relative flex items-center gap-4 px-5 py-3 bg-transparent border-t border-b border-gray-200/10 hover:border-gray-100/20 transition-colors duration-300 w-72"
               dir={isRTL ? "rtl" : "ltr"}
             >
-              {/* invisible number counter */}
-              <span className="text-[10px] text-gray-600 font-mono tracking-widest">
-                {s.id}
+              {/* subtle line that travels */}
+              {lang === 0 ? (
+                <span className="absolute inset-0 h-px bg-cyan-400 scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-300" />
+              ) : (
+                <span className="absolute inset-0 h-px bg-cyan-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+              )}
+
+              {/* index */}
+              <span className="text-xs text-gray-500 font-mono">
+                0{idx + 1}
               </span>
 
               {/* label */}
-              <span className="text-sm text-gray-200 tracking-wide">
+              <span className="text-sm font-mono tracking-wider text-gray-100 group-hover:text-white transition-colors">
                 {isRTL ? s.label.fa : s.label.en}
               </span>
 
-              {/* thin arrow that appears */}
-              <span
-                className={`absolute ${
-                  isRTL ? "left-5 origin-left" : "right-5 origin-right"
-                } h-px w-4 bg-gray-200 scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
-              />
+              {/* arrow that slides */}
+              <svg
+                className={`w-4 h-4 text-gray-400 group-hover:text-white ${
+                  lang === 0 ? "mr-auto" : "ml-auto"
+                } transition-transform duration-300 group-hover:translate-x-1`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </button>
           ))}
         </div>
@@ -192,7 +210,7 @@ const ContactMeDark = () => {
           >
             <span className="absolute inset-0 rounded border border-gray-700/80" />
             <span
-              className="absolute inset-0 rounded border border-transparent bg-gradient-to-r from-gray-300/10 via-black to-gray-400/10 animate-pulse"
+              className="absolute inset-0 rounded border border-transparent bg-gradient-to-l from-gray-300/10 via-black to-gray-400/10 animate-pulse"
               style={{ animationDuration: "2s" }}
             />
             <span className="relative">{uiText.callMe}</span>

@@ -3,6 +3,29 @@
   src: url("/public/fonts/Dirooz-FD-WOL.woff");
 }
 
+.inter-un {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 body {
-  font-family: "Dirooz", system-ui, sans-serif;
+  font-family: Tahoma, "IRAN Sans", "Yekan", "Open Sans", sans-serif;
+  /* font-family: sans-serif; */
+}
+@font-face {
+  font-family: "Yekan";
+  src: url("/fonts/Yekan.ttf") format("ttf"),
+    url("/fonts/Yekan.ttf") format("ttf");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap; /* Good for performance */
 }

@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import Home from "./Home";
 import PresentationRoom from "./components/Presentation/RoomOnFire";
 import AppMinimal from "./AppMinimal";
 

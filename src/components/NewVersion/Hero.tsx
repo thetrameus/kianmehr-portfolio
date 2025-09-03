@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   // Content based on language
   const content = {
-    title: isRTL ? "کیانمهر" : "Kianmehr",
+    title: isRTL ? "کیانمهر" : "KIANMEHR",
     subtitle: isRTL ? "زنده، ساده، قدرتمند" : "Alive, Simple, Powerful",
     description: isRTL
       ? "مدیریت کسب‌وکار مثل یک مهارت ذاتی. شفاف."
@@ -16,18 +16,19 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="text-gray-200 grid md:grid-cols-1 gap-10 md:gap-20 items-center pt-44 pb-44 px-6 max-w-6xl mx-auto">
-      {/* Content */}
+    <section className="text-white grid md:grid-cols-1 gap-10 md:gap-20 items-center pt-44 pb-44 px-6 max-w-6xl mx-auto">
       <div className="space-y-6" dir={isRTL ? "rtl" : "ltr"}>
-        <h1 className="text-6xl md:text-7xl font-medium leading-tight">
+        <h1 className="text-6xl md:text-7xl font-mono leading-tight">
           {content.title}
           <br />
-          <span className="text-teal-400">{content.subtitle}</span>
+          <span className="text-cyan-400"> {content.subtitle} </span>
         </h1>
 
-        <p className="text-slate-300 max-w-md">{content.description}</p>
+        <p className="text-gray-300 max-w-md font-mono">
+          {content.description}
+        </p>
 
-        <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-500 transition-colors">
+        <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-400 text-black rounded-md text-sm font-mono hover:bg-cyan-300 transition-colors">
           {content.buttonText}
           {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
         </button>

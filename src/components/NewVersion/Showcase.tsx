@@ -8,7 +8,9 @@ const Showcase = () => {
   // Content based on language
   const content = {
     title: isRTL ? "نمونه‌کار" : "Portfolio",
-    subtitle: isRTL ? "پویا، مطمعن، کاربردی" : "Dynamic, Reliable, Functional",
+    subtitle: isRTL
+      ? "پویا | مطمعن | کاربردی."
+      : "Dynamic, Reliable, Functional",
     description: isRTL
       ? "مجموعه‌ای از پروژه‌هایی که با دقت ساخته شده‌اند."
       : "A collection of meticulously crafted projects.",
@@ -16,93 +18,161 @@ const Showcase = () => {
   };
 
   return (
-    <section className="relative isolate text-gray-200 py-32 px-6 max-w-7xl mx-auto overflow-hidden">
-      {/* animated black & white gradient + rotating photo reel */}
+    // <section className="relative isolate text-gray-200 py-32 px-6 max-w-7xl mx-auto overflow-hidden font-mono">
+    //   {/* animated black & white gradient + rotating photo reel */}
+    //   <div aria-hidden className="absolute inset-0 -z-10">
+    //     {/* base gradient */}
+    //     <div
+    //       className="absolute inset-0 bg-black"
+    //       style={{
+    //         backgroundImage:
+    //           "radial-gradient(circle at 30% 20%, rgba(255,255,255,.04) 0%, transparent 60%)," +
+    //           "radial-gradient(circle at 70% 80%, rgba(255,255,255,.03) 0%, transparent 50%)," +
+    //           "conic-gradient(from 0deg at 50% 50%, #000 0deg, #0a0a0a 60deg, #000 120deg, #111 180deg, #000 240deg, #0a0a0a 300deg, #000 360deg)",
+    //         animation: "alive 18s linear infinite",
+    //       }}
+    //     />
+
+    //     {/* slow horizontal film strip */}
+    //     <div
+    //       className="absolute top-0 left-0 w-[200%] h-full flex opacity-10"
+    //       style={{ animation: "scroll 60s linear infinite" }}
+    //     >
+    //       <img
+    //         src="/kianmehr-portfolio/1.jpg"
+    //         alt=""
+    //         className="w-1/4 h-full object-cover grayscale"
+    //       />
+    //       <img
+    //         src="/kianmehr-portfolio/2.jpg"
+    //         alt=""
+    //         className="w-1/4 h-full object-cover grayscale"
+    //       />
+    //       <img
+    //         src="/kianmehr-portfolio/3.jpg"
+    //         alt=""
+    //         className="w-1/4 h-full object-cover grayscale"
+    //       />
+    //       <img
+    //         src="/kianmehr-portfolio/4.jpg"
+    //         alt=""
+    //         className="w-1/4 h-full object-cover grayscale"
+    //       />
+    //     </div>
+    //   </div>
+
+    //   {/* content */}
+    //   <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+    //     <div dir={isRTL ? "rtl" : "ltr"}>
+    //       <h2 className="text-5xl md:text-6xl font-medium leading-tight">
+    //         {content.title}
+    //         <br />
+    //         <span className="text-teal-400">{content.subtitle}</span>
+    //       </h2>
+    //       <p className="mt-6 max-w-md text-slate-300">{content.description}</p>
+    //       <button className="mt-10 inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-500 transition-colors">
+    //         {content.buttonText}
+    //         {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+    //       </button>
+    //     </div>
+
+    //     {/* single large preview */}
+    //     <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+    //       <img
+    //         src="/kianmehr-portfolio/5.jpg"
+    //         alt={isRTL ? "پروژه منتخب" : "Featured project"}
+    //         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+    //       />
+    //       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+    //     </div>
+    //   </div>
+
+    //   <style jsx>{`
+    //     @keyframes alive {
+    //       0% {
+    //         filter: hue-rotate(0deg) brightness(1);
+    //       }
+    //       50% {
+    //         filter: hue-rotate(20deg) brightness(1.05);
+    //       }
+    //       100% {
+    //         filter: hue-rotate(0deg) brightness(1);
+    //       }
+    //     }
+    //     @keyframes scroll {
+    //       0% {
+    //         transform: translateX(0);
+    //       }
+    //       100% {
+    //         transform: translateX(-50%);
+    //       }
+    //     }
+    //   `}</style>
+    // </section>
+
+    <section className="relative isolate text-white py-32 px-6 max-w-7xl mx-auto overflow-hidden font-mono">
+      {/* clean gradient + sharp image */}
       <div aria-hidden className="absolute inset-0 -z-10">
-        {/* base gradient */}
         <div
-          className="absolute inset-0 bg-black"
+          className="absolute inset-0 bg-gradient-to-br from-stone-900 via-black to-black"
           style={{
-            backgroundImage:
-              "radial-gradient(circle at 30% 20%, rgba(255,255,255,.04) 0%, transparent 60%)," +
-              "radial-gradient(circle at 70% 80%, rgba(255,255,255,.03) 0%, transparent 50%)," +
-              "conic-gradient(from 0deg at 50% 50%, #000 0deg, #0a0a0a 60deg, #000 120deg, #111 180deg, #000 240deg, #0a0a0a 300deg, #000 360deg)",
-            animation: "alive 18s linear infinite",
+            animation: "pulse 20s ease-in-out infinite alternate",
           }}
         />
 
-        {/* slow horizontal film strip */}
+        {/* single large rotating image */}
         <div
-          className="absolute top-0 left-0 w-[200%] h-full flex opacity-10"
-          style={{ animation: "scroll 60s linear infinite" }}
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-20"
+          style={{ animation: "rotate 40s linear infinite" }}
         >
           <img
-            src="/kianmehr-portfolio/1.jpg"
-            alt=""
-            className="w-1/4 h-full object-cover grayscale"
-          />
-          <img
-            src="/kianmehr-portfolio/2.jpg"
-            alt=""
-            className="w-1/4 h-full object-cover grayscale"
-          />
-          <img
-            src="/kianmehr-portfolio/3.jpg"
-            alt=""
-            className="w-1/4 h-full object-cover grayscale"
-          />
-          <img
-            src="/kianmehr-portfolio/4.jpg"
-            alt=""
-            className="w-1/4 h-full object-cover grayscale"
+            src="/kianmehr-portfolio/5.jpg"
+            alt="kianmehr"
+            className="w-1/2 h-auto rounded opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700"
           />
         </div>
       </div>
 
-      {/* content */}
       <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
         <div dir={isRTL ? "rtl" : "ltr"}>
-          <h2 className="text-5xl md:text-6xl font-medium leading-tight">
+          <h2 className="text-5xl md:text-6xl font-mono leading-tight">
             {content.title}
             <br />
-            <span className="text-teal-400">{content.subtitle}</span>
+            <span className="text-cyan-300"> {content.subtitle} </span>
           </h2>
-          <p className="mt-6 max-w-md text-slate-300">{content.description}</p>
-          <button className="mt-10 inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-500 transition-colors">
+          <p className="mt-6 max-w-md text-gray-400">{content.description}</p>
+          <button className="mt-10 inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-400 text-black rounded-md text-sm font-mono hover:bg-cyan-300 transition-colors">
             {content.buttonText}
             {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
           </button>
         </div>
 
-        {/* single large preview */}
-        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+        <div className="relative w-full aspect-[4/3] rounded">
           <img
             src="/kianmehr-portfolio/5.jpg"
             alt={isRTL ? "پروژه منتخب" : "Featured project"}
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+            className="w-full h-full object-cover rounded opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes alive {
-          0% {
-            filter: hue-rotate(0deg) brightness(1);
+        @keyframes pulse {
+          0%,
+          100% {
+            filter: brightness(1);
           }
           50% {
-            filter: hue-rotate(20deg) brightness(1.05);
-          }
-          100% {
-            filter: hue-rotate(0deg) brightness(1);
+            filter: brightness(1.05);
           }
         }
-        @keyframes scroll {
+        @keyframes rotate {
           0% {
-            transform: translateX(0);
+            transform: rotate(0deg) scale(1);
           }
           100% {
-            transform: translateX(-50%);
+            transform: rotate(360deg) scale(1);
           }
         }
       `}</style>

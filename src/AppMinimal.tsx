@@ -1,13 +1,16 @@
 // LanguageContext.tsx
 
 // App.tsx
+import GlassyEffectBio from "./Glassy";
 import { LanguageProvider } from "./LanguageContext";
 import ContactMeDark from "./components/NewVersion/ContactMinimal";
+import PulseWall from "./components/NewVersion/Final";
+import PulseOrbitBio from "./components/NewVersion/Final";
 import Footer from "./components/NewVersion/Footer";
-import FunMeter from "./components/NewVersion/FunMeter";
 import HeroSection from "./components/NewVersion/Hero";
 import Navbar from "./components/NewVersion/Navbar";
 import Showcase from "./components/NewVersion/Showcase";
+import WhisperFeedback from "./components/NewVersion/WhisperFeedback";
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
         <HeroSection />
         <Showcase />
         <ContactMeDark />
-        <FunMeter />
+
+        {/* <GlassyEffectBio /> */}
+        <WhisperFeedback />
+        <PulseWall />
         <Footer />
       </div>
     </LanguageProvider>

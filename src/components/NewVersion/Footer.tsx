@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative isolate text-gray-300/80 grid md:grid-cols-3 gap-8 items-center py-12 px-6 max-w-7xl mx-auto overflow-hidden"
+      className="font-mono relative isolate text-gray-300/80 grid md:grid-cols-3 gap-8 items-center py-12 px-6 max-w-7xl mx-auto overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* animated black & white gradient (same as hero) */}
