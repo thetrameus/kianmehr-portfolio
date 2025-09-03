@@ -72,7 +72,7 @@ const Navbar = () => {
 
           {/* CTA Button - Warm Blue Gradient */}
           <div className="hidden md:flex gap-2">
-            <button className="bg-gradient-to-r from-[#111620] to-sky-800 text-white px-3 md:px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105">
+            <button className="bg-gradient-to-r from-[#111620] to-sky-800 text-white px-3 md:px-6 py-2 rounded-full text-sm font-mono hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105">
               {lang === 0 ? "باهام تماس بگیر" : "Contact Me"}
             </button>
             <div className="flex items-center justify-center gap-2">
