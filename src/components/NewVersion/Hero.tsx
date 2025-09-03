@@ -24,9 +24,7 @@ const HeroSection = () => {
           <span className="text-cyan-400"> {content.subtitle} </span>
         </h1>
 
-        <p className="text-gray-300 max-w-md font-mono">
-          {content.description}
-        </p>
+        <p className="text-gray-300 max-w-md text">{content.description}</p>
 
         <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-400 text-black rounded-md text-sm font-mono hover:bg-cyan-300 transition-colors">
           {content.buttonText}
