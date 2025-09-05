@@ -1,8 +1,9 @@
+// ContactMeDark.tsx
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "../../LanguageContext";
 
-// Bilingual content for all sections
+/* ---------- content unchanged ---------- */
 const sections = [
   {
     id: "Business",
@@ -29,7 +30,7 @@ const sections = [
     title: { fa: "تولید محتوا", en: "Content Production" },
     image: "/kianmehr-portfolio/brand.png",
     intro: {
-      fa: "بیش از ۲ میلیون بازدید در حوزه‌های مهمان‌نوازی، املاک و سرگرمی.",
+      fa: "بیش از ۲ میلیون بازدید در حوزه‌های مهمان‌نواسی، املاک و سرگرمی.",
       en: "2 M+ views across hospitality, real-estate & entertainment.",
     },
     skills: {
@@ -84,12 +85,10 @@ const sections = [
 
 const ContactMeDark = () => {
   const { lang } = useLanguage();
-
   const [activeId, setActiveId] = useState<string | null>(null);
   const active = sections.find((s) => s.id === activeId);
   const isRTL = lang === 0;
 
-  // UI text based on language
   const uiText = {
     skills: isRTL ? "مهارت‌ها" : "Skills",
     work: isRTL ? "کارها" : "Work",
@@ -99,62 +98,49 @@ const ContactMeDark = () => {
       : "Call AI to Call Me",
   };
 
-  return (
-    <section className="bg-black text-gray-100 min-h-screen flex items-center justify-center px-6 font-mono">
-      {!active ? (
-        // inside the <section> block, replace the button list with:
+  /* font helper */
+  const fontClass = isRTL ? "font-yekan" : "font-head";
 
-        <div className="flex flex-col space-y-3">
+  return (
+    <section className="bg-black text-gray-100 min-h-screen flex items-center justify-center px-6">
+      {!active ? (
+        /* ----------- card grid ----------- */
+        <div className="grid gap-3 w-full max-w-2xl">
           {sections.map((s, idx) => (
             <button
               key={s.id}
               onClick={() => setActiveId(s.id)}
-              className="group relative flex items-center gap-4 px-5 py-3 bg-transparent border-t border-b border-gray-200/10 hover:border-gray-100/20 transition-colors duration-300 w-72"
+              className={`group relative flex items-center gap-4 px-5 py-3 rounded-lg border border-white/10 hover:border-cyan-400/40 transition-all duration-300 ${fontClass}`}
               dir={isRTL ? "rtl" : "ltr"}
             >
-              {/* subtle line that travels */}
-              {lang === 0 ? (
-                <span className="absolute inset-0 h-px bg-cyan-400 scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-300" />
-              ) : (
-                <span className="absolute inset-0 h-px bg-cyan-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-              )}
+              {/* traveling highlight */}
+              <span
+                className={`absolute bottom-0 h-px bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ${
+                  isRTL ? "origin-right" : "origin-left"
+                }`}
+              />
 
-              {/* index */}
-              <span className="text-xs text-gray-500 font-mono">
-                0{idx + 1}
-              </span>
-
-              {/* label */}
-              <span className="text-sm font-mono tracking-wider text-gray-100 group-hover:text-white transition-colors">
+              <span className="text-xs text-gray-500">0{idx + 1}</span>
+              <span className="text-sm tracking-wide text-gray-100 group-hover:text-white">
                 {isRTL ? s.label.fa : s.label.en}
               </span>
-
-              {/* arrow that slides */}
-              <svg
-                className={`w-4 h-4 text-gray-400 group-hover:text-white ${
-                  lang === 0 ? "mr-auto" : "ml-auto"
-                } transition-transform duration-300 group-hover:translate-x-1`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+              <ArrowRight
+                size={16}
+                className={`text-gray-400 group-hover:text-white transition-transform duration-300 ${
+                  isRTL ? "rotate-180 ml-auto" : "ml-auto"
+                } group-hover:translate-x-1`}
+              />
             </button>
           ))}
         </div>
       ) : (
+        /* ----------- detail card ----------- */
         <div
-          className="w-full max-w-md p-6 bg-black/50 backdrop-blur-sm border border-white/5 rounded-xl space-y-4 text-center animate-fade"
+          className={`w-full max-w-md p-6 bg-neutral-900/70 backdrop-blur-md border border-white/10 rounded-2xl space-y-5 animate-fade ${fontClass}`}
           dir={isRTL ? "rtl" : "ltr"}
         >
           <div className="flex justify-between items-center">
-            <h2 className="text-xl text-gray-100">
+            <h2 className="text-xl text-white">
               {isRTL ? active.title.fa : active.title.en}
             </h2>
             <button
@@ -168,7 +154,7 @@ const ContactMeDark = () => {
           <img
             src={active.image}
             alt={isRTL ? active.title.fa : active.title.en}
-            className="w-full h-48 object-cover rounded"
+            className="w-full h-48 object-cover rounded-lg"
           />
 
           <p className="text-sm text-gray-300">
@@ -176,12 +162,12 @@ const ContactMeDark = () => {
           </p>
 
           <div>
-            <h4 className="text-xs text-gray-400 mb-1">{uiText.skills}</h4>
-            <div className="flex flex-wrap gap-1 justify-center">
+            <h4 className="text-xs text-gray-400 mb-2">{uiText.skills}</h4>
+            <div className="flex flex-wrap gap-2">
               {(isRTL ? active.skills.fa : active.skills.en).map((skill) => (
                 <span
                   key={skill}
-                  className="px-2 py-0.5 text-xs text-gray-400 bg-transparent border border-gray-600 rounded"
+                  className="px-2.5 py-1 text-xs text-cyan-200 bg-cyan-900/40 border border-cyan-500/20 rounded"
                 >
                   {skill}
                 </span>
@@ -190,45 +176,38 @@ const ContactMeDark = () => {
           </div>
 
           <div>
-            <h4 className="text-xs text-gray-400 mb-1">{uiText.work}</h4>
-            <ul className="text-xs text-gray-300 space-y-0.5">
+            <h4 className="text-xs text-gray-400 mb-2">{uiText.work}</h4>
+            <ul className="text-xs text-gray-300 space-y-1">
               {(isRTL ? active.projects.fa : active.projects.en).map((p) => (
-                <li key={p}>{p}</li>
+                <li key={p}>• {p}</li>
               ))}
             </ul>
           </div>
 
-          <a
-            href={`mailto:${active.contact}`}
-            className="inline-block px-2 py-1 text-xs text-cyan-400 border border-cyan-500/30 rounded hover:bg-cyan-500/10 transition"
-          >
-            {active.contact}
-          </a>
-          <button
-            onClick={() => window.open("tel:+77438014489", "_self")}
-            className="relative w-full py-2 text-xs text-gray-200 rounded group overflow-hidden"
-          >
-            <span className="absolute inset-0 rounded border border-gray-700/80" />
-            <span
-              className="absolute inset-0 rounded border border-transparent bg-gradient-to-l from-gray-300/10 via-black to-gray-400/10 animate-pulse"
-              style={{ animationDuration: "2s" }}
-            />
-            <span className="relative">{uiText.callMe}</span>
-          </button>
-          <button
-            onClick={() => window.open("tel:+77438014489", "_self")}
-            className="relative w-full py-2 text-xs text-gray-200 rounded group overflow-hidden"
-          >
-            <span className="absolute inset-0 rounded border border-gray-700/80" />
-            <span
-              className="absolute inset-0 rounded border border-transparent bg-gradient-to-r from-cyan-300/10 via-cyan-500/10 to-cyan-800 animate-pulse"
-              style={{ animationDuration: "8s" }}
-            />
-            <span className="relative">{uiText.callAIToCallMe}</span>
-          </button>
+          <div className="flex flex-col gap-2">
+            <button
+              onClick={() => window.open("tel:+77438014489", "_self")}
+              className="relative w-full py-2 text-xs text-gray-200 rounded group overflow-hidden"
+            >
+              <span className="absolute inset-0 rounded border border-gray-700/80" />
+              <span
+                className="absolute inset-0 rounded border border-transparent bg-gradient-to-l from-gray-300/10 via-black to-gray-400/10 animate-pulse"
+                style={{ animationDuration: "2s" }}
+              />
+              <span className="relative">{uiText.callMe}</span>
+            </button>
+            <button
+              onClick={() => window.open("tel:+77438014489", "_self")}
+              className="relative px-3 py-2 text-xs text-center text-gray-200 rounded border border-white/10 hover:border-white/20 transition overflow-hidden"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-transparent to-cyan-400/10 animate-pulse" />
+              <span className="relative">{uiText.callMe}</span>
+            </button>
+          </div>
         </div>
       )}
-      <style jsx>{`
+
+      <style>{`
         .animate-fade {
           animation: fade 0.3s ease-out;
         }
@@ -241,19 +220,6 @@ const ContactMeDark = () => {
             opacity: 1;
             transform: scale(1);
           }
-        }
-
-        @keyframes orbit-glow {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-        .border-cyan-500//20
-        {
-          animation: orbit-glow 12s linear infinite;
         }
       `}</style>
     </section>
