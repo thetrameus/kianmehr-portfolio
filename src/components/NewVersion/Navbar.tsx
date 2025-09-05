@@ -95,7 +95,7 @@ const Navbar = () => {
                   onClick={() => handleLanguage(idx)}
                   className={`w-5 h-5 lg:w-7 lg:h-7 rounded-full text-xs transition-all duration-300 ${
                     lang === idx
-                      ? "bg-cyan-600 text-white scale-110"
+                      ? "bg-gradient-to-r from-[#111620] to-sky-800 text-white scale-110"
                       : "bg-gray-800  text-gray-200 hover:bg-gray-700"
                   }`}
                 >
