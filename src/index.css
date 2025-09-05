@@ -1,8 +1,7 @@
-@font-face {
-  font-family: "Consolas";
-  src: url("/Consola.ttf") format("truetype");
-}
-body {
-  font-family: "Consolas", monospace;
+.fira-code {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
   font-weight: 400;
+  letter-spacing: -0.01em;
+  font-style: larger;
 }
