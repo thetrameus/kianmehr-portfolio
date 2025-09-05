@@ -41,13 +41,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8  ">
         <div className="flex justify-between items-center h-16">
           {/* Logo - Warm Blue */}
-          <div className="flex-shrink-0 items-center">
+          <div
+            className={`flex-shrink-0 items-center font-${
+              isRTL ? "yekan" : "head"
+            }`}
+          >
             <a
               href="#"
-              className="tracking-normal text-xl text-gray-50 bg-gradient-to-r font-mono from-black to-sky-800 bg-clip-text"
+              className="tracking-widest text-3xl text-gray-50 bg-gradient-to-r  from-black to-sky-800 bg-clip-text"
             >
               {lang === 0 ? (
-                <span className="flex ">KIANMEHR یا کیانمهر</span>
+                <span className={`flex font-${isRTL ? "yekan" : "head"}`}>
+                  {/* <span>KIANMEHR یا کیانمهر</span> */}
+                  کیانمهر
+                </span>
               ) : (
                 <span className="">KIANMEHR</span>
               )}
@@ -61,7 +68,9 @@ const Navbar = () => {
                 <a
                   key={isRTL ? item.name.fa : item.name.en}
                   href={item.href}
-                  className="text-gray-300 font-mono hover:text-white px-2 py-2 text-sm font-medium transition-colors duration-200 relative group"
+                  className={`text-gray-300 font-${
+                    isRTL ? "yekan" : "head"
+                  } hover:text-white px-2 py-2 text-sm font-medium transition-colors duration-200 relative group`}
                 >
                   {isRTL ? item.name.fa : item.name.en}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#000000] to-sky-200 transition-all duration-300 group-hover:w-full"></span>
@@ -72,7 +81,11 @@ const Navbar = () => {
 
           {/* CTA Button - Warm Blue Gradient */}
           <div className="hidden md:flex gap-2">
-            <button className="bg-gradient-to-r from-[#111620] to-sky-800 text-white px-3 md:px-6 py-2 rounded-full text-sm font-mono hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105">
+            <button
+              className={`bg-gradient-to-r from-[#111620] to-sky-800 text-white px-3 md:px-6 py-2 rounded-full text-sm font-${
+                isRTL ? "yekan" : "head"
+              } hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105`}
+            >
               {lang === 0 ? "باهام تماس بگیر" : "Contact Me"}
             </button>
             <div className="flex items-center justify-center gap-2">
@@ -136,7 +149,11 @@ const Navbar = () => {
               <div></div>
             ))}
             <div className="pt-4 pb-3 border-t  border-gray-50/10">
-              <button className="w-full bg-gradient-to-r from-[#111620] to-sky-800 text-white px-6 py-2 rounded-full roboto-mono">
+              <button
+                className={`w-full bg-gradient-to-r from-[#111620] to-sky-800 text-white px-6 py-2 rounded-full font-${
+                  isRTL ? "yekan" : "head"
+                }`}
+              >
                 باهام تماس بگیر
               </button>
             </div>
