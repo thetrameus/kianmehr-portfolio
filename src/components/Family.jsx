@@ -1,6 +1,6 @@
 import React from "react";import { useLang } from "../context/LangContext";
 
-export default function BioSection({ isDark }) {
+export default function Bio({ isDark }) {
     const { t, lang } = useLang();
     const pey = lang === "fa" ? "font-peyda" : "";
 

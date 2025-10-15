@@ -41,7 +41,7 @@ const social = [
     },
 ];
 
-export default function ContactSection({ isDark }) {
+export default function Contact({ isDark }) {
     const { lang } = useLang();
     const pey = lang === "fa" ? "font-peyda" : "";
 

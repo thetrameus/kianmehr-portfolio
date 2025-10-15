@@ -10,7 +10,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 
-function App() {
+function AppMinimal() {
     const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
@@ -39,4 +39,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppMinimal;
