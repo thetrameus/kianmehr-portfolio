@@ -1,7 +1,8 @@
-import "./App.css";
+// import "./App.css";
 import { Route, Routes } from "react-router";
 import PresentationRoom from "./components/Presentation/RoomOnFire";
 import AppMinimal from "./AppMinimal";
+import Test from "./Test";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         path="/kianmehr-portfolio/friendly-version"
         element={<AppMinimal />}
       />
+      <Route path="/test" element={<Test />} />
     </Routes>
   );
 }

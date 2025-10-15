@@ -1,7 +1,4 @@
-// LanguageContext.tsx
-
-// App.tsx
-import GlassyEffectBio from "./Glassy";
+// LanguageContext.tsx// App.tsximport GlassyEffectBio from "./Glassy";
 import { LanguageProvider } from "./LanguageContext";
 import ContactMeDark from "./components/NewVersion/ContactMinimal";
 import PulseWall from "./components/NewVersion/Final";
@@ -13,88 +10,88 @@ import Showcase from "./components/NewVersion/Showcase";
 import WhisperFeedback from "./components/NewVersion/WhisperFeedback";
 
 function App() {
-  return (
-    <LanguageProvider>
-      <div className="App">
-        <Navbar />
-        <HeroSection />
-        <Showcase />
-        <ContactMeDark />
+    return (
+        <LanguageProvider>
+            <div className="App">
+                <Navbar />
+                <HeroSection />
+                <Showcase />
+                <ContactMeDark />
 
-        {/* <GlassyEffectBio /> */}
-        <WhisperFeedback />
-        <PulseWall />
-        <Footer />
-      </div>
-    </LanguageProvider>
-  );
+                {/* <GlassyEffectBio /> */}
+                {/* <WhisperFeedback />
+                <PulseWall />
+                <Footer /> */}
+            </div>
+        </LanguageProvider>
+    );
 }
 
 export default App;
 
 {
-  /* <Services /> */
+    /* <Services /> */
 }
 
 {
-  /* <About /> */
+    /* <About /> */
 }
 {
-  /* <Solutions /> */
+    /* <Solutions /> */
 }
 {
-  /* <Biography /> */
+    /* <Biography /> */
 }
 {
-  /* <HeritageJourney /> */
+    /* <HeritageJourney /> */
 }
 {
-  /* <BrandShowcase /> */
-}
-
-{
-  /* <GrayMedalSection /> */
-}
-{
-  /* <Pricing /> */
+    /* <BrandShowcase /> */
 }
 
 {
-  /* <KianmehrBiography /> */
+    /* <GrayMedalSection /> */
+}
+{
+    /* <Pricing /> */
 }
 
 {
-  /* <KianmehrResume /> */
-}
-{
-  /* <GlassyEffectBio /> */
+    /* <KianmehrBiography /> */
 }
 
 {
-  /* <QuickContactWidget /> */
+    /* <KianmehrResume /> */
+}
+{
+    /* <GlassyEffectBio /> */
 }
 
 {
-  /* <TeamCulture /> */
+    /* <QuickContactWidget /> */
 }
 
 {
-  /* <JourneyCards /> */
-}
-{
-  /* <JourneyRoadmap /> */
+    /* <TeamCulture /> */
 }
 
 {
-  /* <NanoJourney /> */
+    /* <JourneyCards /> */
 }
 {
-  /* <MicroJourney /> */
-}
-{
-  /* <JourneyMap /> */
+    /* <JourneyRoadmap /> */
 }
 
 {
-  /* <Contact /> */
+    /* <NanoJourney /> */
+}
+{
+    /* <MicroJourney /> */
+}
+{
+    /* <JourneyMap /> */
+}
+
+{
+    /* <Contact /> */
 }

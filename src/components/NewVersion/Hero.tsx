@@ -31,7 +31,7 @@ export default function HeroMinimal() {
         <div className="max-w-xl">
           {/* mobile text-mask | desktop solid colour */}
           <h1
-            className={`text-6xl md:text-5xl font-light leading-tight tracking-[-0.04em] font-${
+            className={`text-6xl md:text-5xl lg:text-7xl font-light lg:font-bold leading-tight tracking-[-0.04em] font-${
               isRTL ? "yekan" : "head"
             } md:text-white text-mask`}
           >
