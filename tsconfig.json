@@ -1,11 +1,11 @@
 {
-  "files": [],
-  "exclude": ["src/components/Section/Unused"],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-  "compilerOptions": {
-    "noEmitOnError": false
-  }
+    "files": [],
+    "exclude": ["src/components/NewVersion/Section/Unused"],
+    "references": [
+        { "path": "./tsconfig.app.json" },
+        { "path": "./tsconfig.node.json" }
+    ],
+    "compilerOptions": {
+        "noEmitOnError": false
+    }
 }

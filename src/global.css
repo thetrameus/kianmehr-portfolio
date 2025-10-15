@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@font-face {
+    font-family: "Peyda";
+    src: url("/fonts/Peyda-Medium.woff2");
+}
+@font-face {
+    font-family: "Peyda Light";
+    src: url("/fonts/Peyda-Light.woff2");
+}
+
+.font-peyda {
+    font-family: "Peyda";
+}
+
+.font-peyda-light {
+    font-family: "Peyda Light";
+}
+@theme {
+    --color-gray-900: #111111;
+    --color-gray-800: #1f1f1f;
+    --color-gray-700: #2a2a2a;
+
+    --font-sans: "Inter", system-ui, sans-serif;
+}
+@media (max-width: 310px) {
+    .long-title {
+        font-size: 1.25rem; /* 36px به جای 48px */
+    }
+}
