@@ -1,17 +1,34 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useLang } from "../context/LangContext";
-// ترجمه‌ی صمیمی و منطقی offerings
-export default function ServicesShowcase({ isDark }) {
+
+/* ---------- تایپ‌ها ---------- */
+export interface Offering {
+  id: string;
+  title: string;
+  slug: string;
+  short: string;
+  long: string[];
+  gallery: string[];
+  icon: ReactNode;
+}
+
+interface ServicesShowcaseProps {
+  isDark: boolean;
+}
+
+/* ---------- کامپوننت ---------- */
+const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ isDark }) => {
   const { t, lang } = useLang();
 
   const pey = lang === "fa" ? "font-peyda" : "";
   const titleTheme = isDark ? "text-gray-300/60" : "text-black";
   const headings = isDark ? "text-white" : "text-gray-900";
   const boxLightings = isDark
-    ? "border-0 shadow-white/4 shadow-lg bg-gray-900/40 hover:border-gray-700 hover:bg-gray-800/20 "
-    : "border-0 shadow-lg bg-white/80 hover:border-gray-200 hover:bg-gray-200/60 ";
-  const [active, setActive] = useState(null);
+    ? "border-0 shadow-white/4 shadow-lg bg-gray-900/40 hover:border-gray-700 hover:bg-gray-800/20"
+    : "border-0 shadow-lg bg-white/80 hover:border-gray-200 hover:bg-gray-200/60";
+
+  const [active, setActive] = useState<Offering | null>(null);
 
   return (
     <>
@@ -21,24 +38,21 @@ export default function ServicesShowcase({ isDark }) {
       >
         <div className="text-center mb-12">
           <p className={`text-xs uppercase tracking-widest ${titleTheme} mb-3`}>
-            <span>{lang === "fa" ? "کاری که می کنم" : "What I Do"}</span>
+            <span>{lang === "fa" ? "کاری که می‌کنم" : "What I Do"}</span>
           </p>
           <h2
             className={`text-4xl md:text-5xl font-extrabold leading-tight ${headings}`}
           >
-            {lang === "fa" ? "حیطه های فعالیت" : "Focused Expertise"}
+            {lang === "fa" ? "حیطه‌های فعالیت" : "Focused Expertise"}
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {t.fields.offerings.map((item) => (
+          {(t.fields?.offerings as Offering[]).map((item) => (
             <div
               key={item.id}
               onClick={() => setActive(item)}
-              className={`group cursor-pointer rounded-2xl 
-                                border ${boxLightings} p-6
-                                    transition duration-200
-                                    `}
+              className={`group cursor-pointer rounded-2xl border ${boxLightings} p-6 transition duration-200`}
             >
               <div className="flex items-start justify-between">
                 <div
@@ -125,15 +139,11 @@ export default function ServicesShowcase({ isDark }) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel
-                  className={`
-                                    w-full max-w-2xl rounded-2xl 
-                                    border
-                                    ${
-                                      isDark
-                                        ? " border-gray-800 bg-gray-900/90"
-                                        : "bg-white border border-gray-200"
-                                    } backdrop-blur-xl p-6 text-white
-                                    `}
+                  className={`w-full max-w-2xl rounded-2xl border ${
+                    isDark
+                      ? "border-gray-800 bg-gray-900/90"
+                      : "bg-white border border-gray-200"
+                  } backdrop-blur-xl p-6 text-white`}
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
@@ -202,19 +212,17 @@ export default function ServicesShowcase({ isDark }) {
                   </div>
 
                   <div
-                    className={`mt-6 flex justify-${
-                      lang === "fa" ? "start" : "end"
+                    className={`mt-6 flex ${
+                      lang === "fa" ? "justify-start" : "justify-end"
                     }`}
                   >
                     <button
                       onClick={() => setActive(null)}
-                      className={`px-4 py-2 rounded-lg 
-                                                ${
-                                                  isDark
-                                                    ? "bg-gray-800/70 hover:bg-gray-700/70"
-                                                    : "bg-gray-200 hover:bg-white/70 text-black"
-                                                }
-                                            transition text-sm`}
+                      className={`px-4 py-2 rounded-lg ${
+                        isDark
+                          ? "bg-gray-800/70 hover:bg-gray-700/70"
+                          : "bg-gray-200 hover:bg-white/70 text-black"
+                      } transition text-sm`}
                     >
                       <span>{lang === "fa" ? "بازگشت" : "Close"}</span>
                     </button>
@@ -227,4 +235,6 @@ export default function ServicesShowcase({ isDark }) {
       </Transition>
     </>
   );
-}
+};
+
+export default ServicesShowcase;

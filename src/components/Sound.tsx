@@ -36,7 +36,11 @@ const RadioFacePage = () => {
 
   return (
     <>
-      <audio ref={audioRef} preload="none" src="/voice.ogg" />
+      <audio
+        ref={audioRef}
+        preload="none"
+        src="/kianmehr-portfolio/voice.ogg"
+      />
 
       <main className="relative min-h-screen bg-black text-white overflow-hidden">
         {/* عکس چهره سیاه‌وسفید */}
