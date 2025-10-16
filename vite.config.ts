@@ -4,12 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  esbuild: {
-    logLevel: "silent",
-  },
-  optimizeDeps: {
-    exclude: ["src/components/Unused"],
-  },
-  plugins: [react(), tailwindcss()],
-  base: "/kianmehr-portfolio/",
+    esbuild: {
+        logLevel: "silent",
+    },
+    optimizeDeps: {
+        exclude: ["src/components/Unused"],
+    },
+    plugins: [react(), tailwindcss()],
+    base: "/kianmehr-portfolio/",
 });

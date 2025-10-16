@@ -23,7 +23,7 @@ export const dict = {
             "Primary: Omid → Nour-Imam-Reza → Allameh-Tabatabaei → Pazhoohesh (9th) then humanities at Farhang-Dehkada & Kavosh & Hossein-Nia high-schools.",
             "Sept 2023 → Business Management student at Khayyam University of Mashhad (entry: Sept 2023) — focusing on strategic management & entrepreneurship.",
           ],
-          gallery: ["/images/khayyam-university.webp"],
+          gallery: ["/kianmehr-portfolio/images/khayyam-university.webp"],
         },
         {
           id: "content",
@@ -37,7 +37,7 @@ export const dict = {
             "Summer 2023 three-month sprint: Behbud Real-Estate, Ghahraman Academy, Atlas-Cinema Buffet, ADLAY Co, Land-of-Wonders Amusement, Mellat-Park & Ghahramanan.",
             "YouTube journey began summer 2020 with Qeshm-Island vlog; content archive spans property, sports, cinema, tech, leisure and urban stories.",
           ],
-          gallery: ["/images/content-creator.webp"],
+          gallery: ["/kianmehr-portfolio/images/content-creator.webp"],
         },
         {
           id: "swim",
@@ -49,7 +49,7 @@ export const dict = {
             "Started at Kazemian pool under master Alireza Valizadeh, continued water-polo at Tajaddin Brothers Academy, then self-trained at Forumadi and 15-Khordad pools.",
             "Winter 2023: grade-3 coaching licence (Moshtaq & Valizadeh) — stroke analysis, heart-rate sets and weekly logs of splits, stroke-count and energy index.",
           ],
-          gallery: ["/images/swimming-en-cetrificate.webp"],
+          gallery: ["/kianmehr-portfolio/images/swimming-en-cetrificate.webp"],
         },
         {
           id: "lang",
@@ -61,7 +61,7 @@ export const dict = {
             "English from birth (parents policy), formal study at Mahan College & Aryana Institute; FCE & CAE completed.",
             "Autumn 2023: TTC certificate from Aryana — curriculum blends CEFR levels, negotiation simulations and industry-specific vocabulary packs.",
           ],
-          gallery: ["/images/language-teacher.webp"],
+          gallery: ["/kianmehr-portfolio/images/language-teacher.webp"],
         },
       ],
     },
@@ -110,7 +110,7 @@ export const dict = {
             "ابتدایی تا نهم: مدرسه‌ی امید، نور امام‌رضا، علامه طباطبایی، پژوهش (رتبه‌ی ۹) و بعد دبیرستان‌های فرهنگ، دهکده، کاوش و حسین‌نیا.",
             "مهر ۱۴۰۳ → دانشجوی مدیریت کسب و کار دانشگاه خیام مشهد (ورودی مهر ۱۴۰۳) — تمرکز روی مدیریت استراتژیک و کارآفرینی.",
           ],
-          gallery: ["/images/khayyam-university.webp"],
+          gallery: ["/kianmehr-portfolio/images/khayyam-university.webp"],
         },
         {
           id: "content",
@@ -124,7 +124,7 @@ export const dict = {
             "تابستان ۱۴۰۲ اسپرینت سه‌ماهه: بهبود املاک، آکادمی قهرمان، بوفه سینما اطلس، ADLAY، شهربازی سرزمین عجایب، پارک ملت و قهرمانان.",
             "یوتیوب از تابستان ۱۳۹۹ با ولاگ جزیره قشم شروع شد؛ آرشیو محتوا شامل مستندهای ملکی، ورزشی، سینمایی، تکنولوژی، تفریحی و شهری.",
           ],
-          gallery: ["/images/kianmehr.webp"],
+          gallery: ["/kianmehr-portfolio/images/kianmehr.webp"],
         },
         {
           id: "swim",
@@ -136,7 +136,9 @@ export const dict = {
             "شروع در استخر کاظمیان زیر نظر استاد علیرضا ولی‌زاده، ادامه واترپلو در آکادمی برادران تجدد، سپس تمرین خودجوش در استخرهای فرومندی و ۱۵ خرداد.",
             "سال ۱۴۰۳: گرفتن مدرک از فدراسیون شنای کشور -  مدرک مربیگری درجه‌۳ (مشتاق و ولی‌زاده) — آنالیز استروک، ست‌های هارت-ریت و لاگ هفتگی اسپلیت، تعداد ضرب و شاخص انرژی.",
           ],
-          gallery: ["/images/swimming-english-cetrificate.webp"],
+          gallery: [
+            "/kianmehr-portfolio/images/swimming-english-cetrificate.webp",
+          ],
         },
         {
           id: "lang",
@@ -148,7 +150,7 @@ export const dict = {
             "انگلیسی از بدو تولد (سیاست خانواده)، آموزش رسمی در کالج ماهان و موسسه آریانا؛ مدرک FCE و CAE گرفته‌شده.",
             "پاییز ۱۴۰۳: مدرک TTC از آریانا — برنامه درسی ترکیبی از سطوح CEFR، شبیه‌سازی مذاکره و بانک واژگان تخصصی صنعت.",
           ],
-          gallery: ["/images/language-teacher.webp"],
+          gallery: ["/kianmehr-portfolio/images/language-teacher.webp"],
         },
       ],
     },

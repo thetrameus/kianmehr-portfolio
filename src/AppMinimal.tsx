@@ -9,6 +9,7 @@ import Youtube from "./components/Youtube";
 import Sound from "./components/Sound";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ImageSlider from "./components/ImageSlider";
 
 const AppMinimal: React.FC = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -29,6 +30,7 @@ const AppMinimal: React.FC = () => {
         <Hero isDark={isDark} />
         <Fields isDark={isDark} />
         <Projects isDark={isDark} />
+        <ImageSlider isDark={isDark} />
         <Family isDark={isDark} />
         <Youtube isDark={isDark} />
         <Sound isDark={isDark} />

@@ -190,7 +190,7 @@ export default function ServicesShowcase({ isDark }) {
                         key={i}
                         src={
                           active.id === "swim"
-                            ? `/images/swimming-${lang}-certificate.webp`
+                            ? `/kianmehr-portfolio/images/swimming-${lang}-certificate.webp`
                             : src
                         }
                         alt={`${active.title} ${i + 1}`}

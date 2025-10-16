@@ -42,7 +42,9 @@ const RadioFacePage = () => {
         {/* عکس چهره سیاه‌وسفید */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url(/images/face-sample.webp)" }}
+          style={{
+            backgroundImage: "url(/kianmehr-portfolio/images/face-sample.webp)",
+          }}
         />
 
         {/* محتوا */}

@@ -11,7 +11,7 @@ const ImageSliderCore = ({ isDark, images = [] }) => {
   const defaultImages = [
     {
       id: 1,
-      src: `/images/brand/${isDark ? "white" : "dark"}.webp`,
+      src: `/kianmehr-portfolio/images/brand/${isDark ? "white" : "dark"}.webp`,
       alt: "Project 1",
       title: "",
       desc: "Strategic planning session",
@@ -19,7 +19,7 @@ const ImageSliderCore = ({ isDark, images = [] }) => {
     },
     {
       id: 2,
-      src: "/images/brand/hybrid-green-yellow.webp",
+      src: "/kianmehr-portfolio/images/brand/hybrid-green-yellow.webp",
       alt: "Project 2",
       title: "",
       desc: "Behind the scenes",
@@ -27,7 +27,7 @@ const ImageSliderCore = ({ isDark, images = [] }) => {
     },
     {
       id: 3,
-      src: "/images/brand/hybrid.webp",
+      src: "/kianmehr-portfolio/images/brand/hybrid.webp",
       alt: "Project 3",
       title: "",
       desc: "Training session",
