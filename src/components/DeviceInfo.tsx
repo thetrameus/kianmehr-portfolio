@@ -56,7 +56,7 @@ export default function DeviceInfo() {
 
     // ---------- ارسال به سرور ----------
     function sendToServer(data: any) {
-      fetch("https://tests.fourty7.ir/DEVICE_USER_CONTEXT_HORIZON", {
+      fetch("https://tests.fourty7.ir/test/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
