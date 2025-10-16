@@ -1,14 +1,36 @@
-// src/components/ImageSlider.lazy.jsx
+// src/components/ImageSlider.lazy.tsx
 import React, { useEffect, useState, memo } from "react";
 import { useLang } from "../context/LangContext";
 
-const ImageSliderCore = ({ isDark, images = [] }) => {
+/* ----------  تایپ‌ها  ---------- */
+interface Slide {
+  id: number;
+  src: string;
+  alt: string;
+  title: string;
+  desc: string;
+  descPersian: string;
+}
+
+interface ImageSliderCoreProps {
+  isDark: boolean;
+  images?: Slide[];
+}
+
+type Direction = "next" | "prev";
+
+/* ----------  کامپوننت اصلی اسلایدر  ---------- */
+const ImageSliderCore: React.FC<ImageSliderCoreProps> = ({
+  isDark,
+  images = [],
+}) => {
   const { lang } = useLang();
   const pey = lang === "fa" ? "font-peyda" : "";
+
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const defaultImages = [
+  const defaultImages: Slide[] = [
     {
       id: 1,
       src: `/kianmehr-portfolio/images/brand/${isDark ? "white" : "dark"}.webp`,
@@ -37,7 +59,7 @@ const ImageSliderCore = ({ isDark, images = [] }) => {
 
   const slides = images.length ? images : defaultImages;
 
-  const changeSlide = (direction) => {
+  const changeSlide = (direction: Direction) => {
     if (isAnimating) return;
     setIsAnimating(true);
     const newIndex =
@@ -190,10 +212,19 @@ const ImageSliderCore = ({ isDark, images = [] }) => {
   );
 };
 
-const ImageSlider = memo(({ isDark, images }) => {
+/* ----------  Lazy Wrapper  ---------- */
+interface ImageSliderProps {
+  isDark: boolean;
+  images?: Slide[];
+}
+
+const ImageSlider = memo<ImageSliderProps>(({ isDark, images }) => {
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
+    const el = document.getElementById("lazy-slider");
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasLoaded) {
@@ -204,8 +235,7 @@ const ImageSlider = memo(({ isDark, images }) => {
       { threshold: 0.1, rootMargin: "50px" }
     );
 
-    const el = document.getElementById("lazy-slider");
-    if (el) observer.observe(el);
+    observer.observe(el);
     return () => observer.disconnect();
   }, [hasLoaded]);
 

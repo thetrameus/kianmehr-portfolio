@@ -4,14 +4,16 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Fields from "./components/Fields";
 import Projects from "./components/Projects";
+import ImageSlider from "./components/ImageSlider";
 import Family from "./components/Family";
 import Youtube from "./components/Youtube";
 import Sound from "./components/Sound";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ImageSlider from "./components/ImageSlider";
+import DeviceInfo from "./components/DeviceInfo";
 
 const AppMinimal: React.FC = () => {
+  window.location.href = "https://test.fourty7.ir";
   const [isDark, setIsDark] = useState<boolean>(false);
 
   useEffect(() => {
@@ -27,15 +29,16 @@ const AppMinimal: React.FC = () => {
     <LangProvider>
       <div className={themeClasses}>
         <Navbar isDark={isDark} setIsDark={setIsDark} />
-        <Hero isDark={isDark} />
+        {/* <Hero isDark={isDark} />
         <Fields isDark={isDark} />
         <Projects isDark={isDark} />
         <ImageSlider isDark={isDark} />
         <Family isDark={isDark} />
         <Youtube isDark={isDark} />
-        <Sound isDark={isDark} />
+        <Sound />
         <Contact isDark={isDark} />
-        <Footer isDark={isDark} />
+        <Footer isDark={isDark} /> */}
+        <DeviceInfo />
       </div>
     </LangProvider>
   );

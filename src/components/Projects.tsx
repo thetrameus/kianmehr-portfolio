@@ -1,73 +1,99 @@
 import React, { useState } from "react";
 import { useLang } from "../context/LangContext";
 
-export default function CurrentProjects({ isDark }) {
-  const { lang } = useLang();
-  const pey = lang === "fa" ? "font-peyda" : "";
-  const [active, setActive] = useState(0);
+/* ----------  تایپ‌ها  ---------- */
+type LangKey = "fa" | "en";
 
-  const T = {
-    en: {
-      caption: "In Progress",
-      title1: "Current",
-      title2: "Projects",
-      join: "Join Beta List",
-      projects: [
-        {
-          id: "biz",
-          title: "Business Platform",
-          short: "KPI dashboard & process automation",
-          long: "Integrated hub for team performance, project management and auto-reporting. Alpha scheduled summer 2024.",
-          progress: 68,
-        },
-        {
-          id: "swim",
-          title: "Swim Analytics",
-          short: "Bio-mechanics tracker for athletes",
-          long: "Records heart-rate, splits and stroke form in real-time. Beta ready June 2024.",
-          progress: 45,
-        },
-        {
-          id: "lang",
-          title: "Language Hub",
-          short: "Micro-lesson platform with CEFR levels",
-          long: "Interactive cards, smart pronunciation and live leaderboard. Early design phase.",
-          progress: 28,
-        },
-      ],
-    },
-    fa: {
-      caption: "در حال انجام",
-      title1: "پروژه‌های",
-      title2: "جاری",
-      join: "عضویت در خبرنامه",
-      projects: [
-        {
-          id: "biz",
-          title: "پلتفرم کسب‌وکار",
-          short: "داشبورد KPI و اتوماسیون فرایندها",
-          long: "مرکز یکپارچه برای عملکرد تیم، مدیریت پروژه و گزارش‌گیری خودکار. آلفا تابستان ۱۴۰۳.",
-          progress: 68,
-        },
-        {
-          id: "swim",
-          title: "آنالیتیکس شنا",
-          short: "ردیاب بیومکانیک برای ورزشکاران",
-          long: "ثبت ضربان قلب، اسپلیت و فرم ضربه در زمان واقعی. بتا خرداد ۱۴۰۳ آماده‌است.",
-          progress: 45,
-        },
-        {
-          id: "lang",
-          title: "مرکز زبان",
-          short: "پلتفرم درس‌های خرد با سطوح CEFR",
-          long: "کارت‌های تعاملی، تلفظ هوشمند و جدول امتیاز زنده. فاز طراحی اولیه.",
-          progress: 28,
-        },
-      ],
-    },
-  };
+interface Project {
+  id: string;
+  title: string;
+  short: string;
+  long: string;
+  progress: number;
+}
+
+interface CurrentProjectsProps {
+  isDark: boolean;
+}
+
+/* ----------  دیکشنری محلی  ---------- */
+const T: Record<
+  LangKey,
+  {
+    caption: string;
+    title1: string;
+    title2: string;
+    join: string;
+    projects: Project[];
+  }
+> = {
+  en: {
+    caption: "In Progress",
+    title1: "Current",
+    title2: "Projects",
+    join: "Join Beta List",
+    projects: [
+      {
+        id: "biz",
+        title: "Business Platform",
+        short: "KPI dashboard & process automation",
+        long: "Integrated hub for team performance, project management and auto-reporting. Alpha scheduled summer 2024.",
+        progress: 68,
+      },
+      {
+        id: "swim",
+        title: "Swim Analytics",
+        short: "Bio-mechanics tracker for athletes",
+        long: "Records heart-rate, splits and stroke form in real-time. Beta ready June 2024.",
+        progress: 45,
+      },
+      {
+        id: "lang",
+        title: "Language Hub",
+        short: "Micro-lesson platform with CEFR levels",
+        long: "Interactive cards, smart pronunciation and live leaderboard. Early design phase.",
+        progress: 28,
+      },
+    ],
+  },
+  fa: {
+    caption: "در حال انجام",
+    title1: "پروژه‌های",
+    title2: "جاری",
+    join: "عضویت در خبرنامه",
+    projects: [
+      {
+        id: "biz",
+        title: "پلتفرم کسب‌وکار",
+        short: "داشبورد KPI و اتوماسیون فرایندها",
+        long: "مرکز یکپارچه برای عملکرد تیم، مدیریت پروژه و گزارش‌گیری خودکار. آلفا تابستان ۱۴۰۳.",
+        progress: 68,
+      },
+      {
+        id: "swim",
+        title: "آنالیتیکس شنا",
+        short: "ردیاب بیومکانیک برای ورزشکاران",
+        long: "ثبت ضربان قلب، اسپلیت و فرم ضربه در زمان واقعی. بتا خرداد ۱۴۰۳ آماده‌است.",
+        progress: 45,
+      },
+      {
+        id: "lang",
+        title: "مرکز زبان",
+        short: "پلتفرم درس‌های خرد با سطوح CEFR",
+        long: "کارت‌های تعاملی، تلفظ هوشمند و جدول امتیاز زنده. فاز طراحی اولیه.",
+        progress: 28,
+      },
+    ],
+  },
+};
+
+/* ----------  کامپوننت اصلی  ---------- */
+const CurrentProjects: React.FC<CurrentProjectsProps> = ({ isDark }) => {
+  const { lang } = useLang();
+  const [active, setActive] = useState<number>(0);
 
   const projects = T[lang].projects;
+  const pey = lang === "fa" ? "font-peyda" : "";
 
   return (
     <section id="projects" className="max-w-6xl mx-auto px-6 py-16 md:py-24">
@@ -260,7 +286,7 @@ export default function CurrentProjects({ isDark }) {
               className={`md:hidden absolute bottom-4 ${
                 lang === "fa" ? "left-4" : "right-4"
               } transition-transform ${active === i ? "rotate-5" : ""}`}
-            ></div>
+            />
           </div>
         ))}
 
@@ -268,9 +294,9 @@ export default function CurrentProjects({ isDark }) {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className={`group inline-flex items-center gap-3 px-6 py-3 rounded-xl  transition-all duration-300 ${
+            className={`group inline-flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 ${
               isDark
-                ? "bg-gradient-to-r from-red-500 to-yellow-700  text-red-100"
+                ? "bg-gradient-to-r from-red-500 to-yellow-700 text-red-100"
                 : "bg-gradient-to-r from-red-500 to-red-500 border-transparent text-white hover:shadow-lg"
             } hover:scale-105`}
           >
@@ -295,4 +321,6 @@ export default function CurrentProjects({ isDark }) {
       </div>
     </section>
   );
-}
+};
+
+export default CurrentProjects;

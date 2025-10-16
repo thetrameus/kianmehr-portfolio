@@ -1,17 +1,25 @@
+// src/components/RadioFacePage.tsx
 import React, { useState, useRef, useEffect } from "react";
 import { useLang } from "../context/LangContext";
 
-const RadioFacePage = () => {
+type LangKey = "fa" | "en";
+
+const RadioFacePage: React.FC = () => {
   const { lang } = useLang();
   const pey = lang === "fa" ? "font-peyda" : "";
 
   const [playing, setPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
-    playing ? audio.pause() : audio.play();
+
+    if (playing) {
+      void audio.pause(); // ← void باعث می‌شود ESLint متوجه شود عمداً کنار گذاشته‌ایم
+    } else {
+      void audio.play(); // ← همین‌جا هم
+    }
     setPlaying((p) => !p);
   };
   useEffect(() => {
@@ -22,8 +30,9 @@ const RadioFacePage = () => {
     audio.addEventListener("ended", handleEnded);
     return () => audio.removeEventListener("ended", handleEnded);
   }, []);
+
   // متن‌های inline
-  const txt = {
+  const txt: Record<LangKey, { title: string; cta: string }> = {
     en: {
       title: "Kianmehr Voice",
       cta: "Hit the button and feel the wave — a voice message from Kianmehr, updated every week.",
@@ -111,19 +120,6 @@ const RadioFacePage = () => {
             </p>
           </div>
         </div>
-
-        {/* انیمیشن امواج واقعی */}
-        <style jsx>{`
-          @keyframes waveReal {
-            0%,
-            100% {
-              height: 6px;
-            }
-            50% {
-              height: calc(6px + 14px);
-            }
-          }
-        `}</style>
       </main>
     </>
   );
