@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useLang } from "../context/LangContext";
+
 type NavKey = "about" | "services" | "contact";
 
 interface NavbarProps {
   isDark: boolean;
   setIsDark: (value: boolean | ((prev: boolean) => boolean)) => void;
 }
+
+const navKeys: NavKey[] = ["about", "services", "contact"];
+
 const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
   const { t, lang, toggleLang } = useLang();
   const [open, setOpen] = useState(false);
@@ -193,4 +197,5 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
     </nav>
   );
 };
+
 export default Navbar;

@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import DeviceInfo from "./components/DeviceInfo";
 
 const AppMinimal: React.FC = () => {
-  window.location.href = "https://test.fourty7.ir";
   const [isDark, setIsDark] = useState<boolean>(false);
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const AppMinimal: React.FC = () => {
     <LangProvider>
       <div className={themeClasses}>
         <Navbar isDark={isDark} setIsDark={setIsDark} />
-        {/* <Hero isDark={isDark} />
+        <Hero isDark={isDark} />
         <Fields isDark={isDark} />
         <Projects isDark={isDark} />
         <ImageSlider isDark={isDark} />
@@ -37,7 +36,7 @@ const AppMinimal: React.FC = () => {
         <Youtube isDark={isDark} />
         <Sound />
         <Contact isDark={isDark} />
-        <Footer isDark={isDark} /> */}
+        <Footer isDark={isDark} />
         <DeviceInfo />
       </div>
     </LangProvider>

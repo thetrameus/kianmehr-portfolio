@@ -27,7 +27,7 @@
     font-size: 1.25rem;
   }
 }
-
+/* 
 @keyframes waveReal {
   0%,
   100% {
@@ -36,4 +36,4 @@
   50% {
     height: calc(6px + 14px);
   }
-}
+} */
