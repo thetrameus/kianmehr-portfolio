@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Dirooz";
+  src: url("/public/fonts/Dirooz-FD-WOL.woff");
+}
+
+body {
+  font-family: "Dirooz", system-ui, sans-serif;
+}
